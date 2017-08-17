@@ -1,0 +1,12 @@
+.left{
+    width:200px;
+    float:left;
+}
+.item{
+    height: 30px;
+    line-height: 30px;
+    padding:0 10px;
+}
+.main{
+    margin-left:210px;
+}

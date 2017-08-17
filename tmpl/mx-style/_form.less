@@ -1,0 +1,50 @@
+@import "_vars";
+
+::-webkit-input-placeholder {
+    color: @placeholder-color;
+}
+:-moz-placeholder{
+    color: @placeholder-color;
+}
+:-ms-input-placeholder{
+    color: @placeholder-color;
+}
+.input,.textarea{
+    display: inline-block;
+    height: @input-height;
+    vertical-align: middle;
+    font-size: @font-size;
+    padding: 6px 9px;
+    border-radius: @border-radius;
+    box-sizing: border-box;
+    box-shadow: none;
+    border: 1px solid @color-border;
+    background-color: #fff;
+    color: @color-primary;
+    width:340px;
+    max-width: 100%;
+}
+
+.input:hover,.textarea:hover{
+    border-color: @color-border-hover;
+}
+.input:focus,
+.input-focus,
+.textarea:focus/*,
+.textarea-focus*/ {
+    border-color: @color-brand!important;
+}
+.input-focus:hover{
+    border-color: @color-brand!important;
+}
+.textarea{
+    height: auto;
+}
+.input[disabled],
+.textarea[disabled]{
+    background-color: @color-disabled;
+}
+.input[disabled]:hover,
+.textarea[disabled]:hover{
+    border-color:@color-border;
+}

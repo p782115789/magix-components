@@ -1,0 +1,29 @@
+<div class="group">
+    <input class="input ipt" mx-change="stop()" value="<%=format(time.hour)%>"<%if(types.hour){%> mx-focusout="set({type:'hour'})"<%}else{%> disabled<%}%> maxlength="2" />
+    <div type="button" class="btn o-btn fl"<%if(types.hour){%> mx-click="change({type:'hour'})"<%}else{%> disabled<%}%> tabindex="-1">
+        <i class="iconfont">&#xe6df;</i>
+    </div>
+    <button type="button" class="btn o-btn fr"<%if(types.hour){%> mx-click="change({type:'hour',inc:true})"<%}else{%> disabled<%}%> tabindex="-1">
+        <i class="iconfont">&#xe661;</i>
+    </button>
+</div>
+<span class="spliter">:</span>
+<div class="group">
+    <input class="input ipt" mx-change="stop()" value="<%=format(time.minute)%>"<%if(types.minute){%> mx-focusout="set({type:'minute'})"<%}else{%> disabled<%}%> maxlength="2" />
+    <button type="button" class="btn o-btn fl"<%if(types.minute){%> mx-click="change({type:'minute'})"<%}else{%> disabled<%}%> tabindex="-1">
+        <i class="iconfont">&#xe6df;</i>
+    </button>
+    <button type="button" class="btn o-btn fr"<%if(types.minute){%> mx-click="change({type:'minute',inc:true})"<%}else{%> disabled<%}%> tabindex="-1">
+        <i class="iconfont">&#xe661;</i>
+    </button>
+</div>
+<span class="spliter">:</span>
+<div class="group">
+    <input class="input ipt" mx-change="stop()" value="<%=format(time.second)%>"<%if(types.second){%> mx-focusout="set({type:'second'})"<%}else{%> disabled<%}%> maxlength="2" />
+    <button type="button" class="btn o-btn fl"<%if(types.second){%> mx-click="change({type:'second'})"<%}else{%> disabled<%}%> tabindex="-1">
+        <i class="iconfont">&#xe6df;</i>
+    </button>
+    <button type="button" class="btn o-btn fr"<%if(types.second){%> mx-click="change({type:'second',inc:true})"<%}else{%> disabled<%}%> tabindex="-1">
+        <i class="iconfont">&#xe661;</i>
+    </button>
+</div>

@@ -1,0 +1,30 @@
+{
+  "name": "magix-components",
+  "version": "1.0.0",
+  "description": "magix组件",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/magix-components/magix-components.git"
+  },
+  "keywords": [
+    "magix",
+    "view",
+    "components"
+  ],
+  "author": "xinglie <xinglie.lkf@alibaba-inc.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/magix-components/magix-components/issues"
+  },
+  "homepage": "https://github.com/magix-components/magix-components#readme",
+  "dependencies": {
+    "del": "3.0.0",
+    "gulp": "3.9.1",
+    "gulp-watch": "4.3.11",
+    "jquery": "3.2.1",
+    "magix": "3.5.2",
+    "magix-combine": "3.5.3",
+    "seajs": "3.0.2"
+  }
+}

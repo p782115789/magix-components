@@ -1,0 +1,44 @@
+@import "../mx-style/_vars";
+.vbtm{
+    vertical-align: text-bottom;
+}
+.statistics,
+.pager{
+    position: relative;
+}
+.statistics{
+    color: @color-third;
+    float: left;
+}
+.pager{
+    text-align: right;
+    float: right;
+    padding-top: 5px;
+}
+.icon{
+    font-size: @font-size - 2;
+}
+.num{
+    display: inline-block;
+}
+.num-item{
+    margin: 0 3px;
+    text-decoration: none;
+    z-index: 3;
+    border-radius: 4px;
+    text-align: center;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    display: block;
+}
+.active .num-item{
+    color: #fff;
+    background-color: @color-brand;
+}
+.notallowed .num-item,
+.notallowed .num-item:hover{
+    color:@color-third;
+    background: transparent;
+    cursor: not-allowed;
+}

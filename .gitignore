@@ -1,0 +1,7 @@
+.tmp_*
+.project
+*.idea
+.DS_Store
+node_modules
+_t.html
+src
