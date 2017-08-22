@@ -306,7 +306,6 @@ module.exports = Magix.View.extend({
         let items = [];
         let sMap = {};
         let updater = me.updater;
-        let textKey = updater.get('textKey');
         let valueKey = updater.get('valueKey');
         let list = me.$list;
         let ssMap = Magix.toMap(selected);
@@ -315,7 +314,7 @@ module.exports = Magix.View.extend({
             key = valueKey ? one[valueKey] : one;
             if (Magix.has(ssMap, key)) {
                 sMap[key] = 1;
-                items.push(textKey ? one[textKey] : one);
+                items.push(one);
             }
         }
         me.updater.set({
@@ -328,10 +327,11 @@ module.exports = Magix.View.extend({
         let me = this;
         if (selected) {
             me.updateSelected(selected);
-            me.updater.set({
+            me.updater.digest({
                 list: me.getSuggest()
-            }).digest();
+            });
             me.updateTrigger();
+            me.$rNode.removeClass('mx3e3-_mx-style_index_-input-focus');
             me.triggerEvent();
         }
         return me.updater.get('items');

@@ -1,4 +1,4 @@
-.left{
+/*.left{
     width:200px;
     float:left;
 }
@@ -6,7 +6,7 @@
     height: 30px;
     line-height: 30px;
     padding:0 10px;
-}
+}*/
 .main{
-    margin-left:210px;
+    padding:50px;
 }

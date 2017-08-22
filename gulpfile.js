@@ -34,3 +34,11 @@ gulp.task('watch', ['combine'], () => {
         }
     });
 });
+
+gulp.task('release', ['combine'], () => {
+    let cs = fs.readFileSync('./src/__test__/all.js').toString();
+    let index = fs.readFileSync('./index.html').toString();
+    cs = cs.replace(/\$/g, '$$$$');
+    index = index.replace(/<script id="test">[\s\S]*?<\/script>/, '<script id="test">' + cs + '</script>');
+    fs.writeFileSync('./index.html', index);
+});
