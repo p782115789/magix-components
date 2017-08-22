@@ -19,7 +19,7 @@
     <script>
         let coms=['monitor','dropdown','taginput','dragdrop','hourpicker','calendar','time','dialog','uploader','popover','pagination','gtip'];
         let p={
-            __test__:location.protocol+'//'+location.hostname+'/magix-components/src/__test__'
+            _test:location.protocol+'//'+location.hostname+'/magix-components/src/_test'
         };
         for(let c of coms){
             p[`mx-${c}`]=location.protocol+'//'+location.hostname+`/magix-components/src/mx-${c}`;
@@ -30,7 +30,7 @@
         seajs.use('magix',function(M){
             M.boot({
                 rootId:'app',
-                defaultView:'__test__/all',
+                defaultView:'_test/all',
                 defaultPath:'/mx-calendar/index'
             });
         });

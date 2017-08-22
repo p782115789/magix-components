@@ -34,7 +34,6 @@ module.exports = Magix.View.extend({
         if (me.$extra.timeTypes) {
             options.btns = true; //显示按钮
         }
-        options.forceRender = true;
         vf.invoke('update', [options]);
     },
     render() {
