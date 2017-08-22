@@ -1,4 +1,5 @@
 <div class="clearfix">
+    <%if(!simplify&&!mini){%>
     <div class="statistics">
         <span class="vbtm">
             当前第 <b><%for(let i=startSpace;i--;){%>&nbsp;&nbsp;<%}%><%= offsetStart %> - <%= offsetEnd %><%for(let i=endSpace;i--;){%>&nbsp;&nbsp;<%}%></b> 条，共 <b><%= total %></b> 条，每页展现
@@ -10,6 +11,7 @@
         ></div>
         <span class="vbtm">条</span>
     </div>
+    <%}%>
     <div class="pager">
         <ul>
             <li class="num<%if(page==1){%> notallowed<%}%>">
@@ -17,6 +19,10 @@
                     <span class="iconfont icon">&#xe61e;</span>
                 </a>
             </li>
+            <%if(mini){%>
+            <li class="num"><%for(let i=pageSpace;i--;){%>&nbsp;&nbsp;<%}%><%=page%> / <%=pages%>
+            </li>
+            <%}else{%>
             <%if(start>1){%>
             <li class="num">
                 <a class="num-item" href="#" mx-click="toPage({page:1})">1</a>
@@ -39,6 +45,7 @@
             <li class="num">
                 <a class="num-item" href="#" mx-click="toPage({page:<%=pages%>})"><%=pages%></a>
             </li>
+            <%}%>
             <%}%>
             <li class="num<%if(page==pages){%> notallowed<%}%>">
                 <a class="num-item" href="#"<%if(page<pages){%> mx-click="toNext()"<%}else{%> mx-click="prevent()"<%}%>><span class="iconfont icon">&#xe61b;</span></a>

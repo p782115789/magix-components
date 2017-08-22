@@ -98,7 +98,7 @@ module.exports = Magix.View.extend({
         let me = this;
         if (e.params.enter) {
             me.$bakTime = me.$time;
-            me.$oNode.val(me.$time);
+            me.$oNode.val(me.$time).trigger('change');
         }
         me.hide();
     }

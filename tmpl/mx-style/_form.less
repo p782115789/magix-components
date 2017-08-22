@@ -48,3 +48,45 @@
 .textarea[disabled]:hover{
     border-color:@color-border;
 }
+
+input[type="checkbox"],
+input[type="radio"]{
+    width: @font-size;
+    height: @font-size;
+    line-height: @font-size;
+    text-align: center;
+    font-size: @font-size - 4;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    vertical-align: text-bottom;
+    border-radius: @border-radius;
+    transition: background-color .25s;
+    background-color: #fff;
+    border: 1px solid @color-border;
+}
+input[type="radio"]{
+    border-radius: 50%;
+}
+input[type="checkbox"]:checked,
+input[type="checkbox"]:indeterminate,
+input[type="radio"]:checked{
+    background-color: @color-brand;
+}
+input[type="checkbox"]:checked:after{
+    content: '✓';
+    color:#fff;
+}
+input[type="checkbox"]:indeterminate:after{
+    content: '╍';
+    color:#fff;
+}
+input[type="radio"]:checked:after{
+    content: '';
+    display: block;
+    height: floor((@font-size - 2) / 3);
+    width: floor((@font-size - 2) / 3);
+    border-radius: 50%;
+    margin:35% auto;
+    background-color: #fff;
+}

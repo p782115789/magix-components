@@ -11,12 +11,12 @@ module.exports = Magix.View.extend({
         me.$extra = extra;
         let total = (extra.total | 0) || 0;
         let size = extra.size || 20;
-        let pages = Math.ceil((total || 1) / size);
         let page = extra.page || 1;
         me.updater.set({
             step: extra.step || 7,
+            simplify: extra.simplify,
+            mini: extra.mini,
             page: page,
-            pages: pages,
             total: total,
             size: size
         });
@@ -30,7 +30,7 @@ module.exports = Magix.View.extend({
         let me = this;
         let data = me.updater.get();
         let page = data.page | 0;
-        let pages = data.pages | 0;
+        let pages = Math.ceil((data.total || 1) / data.size);
         if (page > pages) page = pages;
         let step = data.step | 0;
         let middle = step / 2 | 0;
@@ -59,13 +59,15 @@ module.exports = Magix.View.extend({
         let offsetStart = (page - 1) * data.size + 1;
         let offsetEnd = Math.min(data.total, page * data.size);
         return {
+            pages,
             offsetStart: offsetStart,
             offsetEnd: offsetEnd,
             startSpace: (data.total + '').length - (offsetStart + '').length,
             endSpace: (data.total + '').length - (offsetEnd + '').length,
-            page: page,
-            start: start,
-            end: end
+            pageSpace: (pages + '').length - (page + '').length,
+            page,
+            start,
+            end
         };
     },
     fireEvent() {

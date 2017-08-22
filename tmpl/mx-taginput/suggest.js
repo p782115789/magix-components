@@ -25,7 +25,6 @@ module.exports = Magix.View.extend({
             textKey: extra.textKey,
             valueKey: extra.valueKey
         });
-        me.$map = extra.map || Magix.toMap(me.$list, extra.valueKey);
         me.$idx = -1;
         me.$relateIds = [me.id, 'suggest_' + me.id];
         if (extra.relateIds) {
@@ -46,12 +45,18 @@ module.exports = Magix.View.extend({
         let me = this;
         if (!ignore) {
             me.$list = list;
-            me.$map = Magix.toMap(list, me.updater.get('valueKey'));
         }
         me.$idx = -1;
         me.updater.digest({
             list: me.$slist = list
         });
+        if (me.$rNode) {
+            if (!list || !list.length) {
+                me.$rNode.removeClass('@suggest.less:suggest');
+            } else {
+                me.$rNode.addClass('@suggest.less:suggest');
+            }
+        }
     },
     render() {
         let me = this;
@@ -180,11 +185,7 @@ module.exports = Magix.View.extend({
     'pick<click>' (e) {
         e.preventDefault();
         let me = this;
-        let updater = me.updater;
-        let map = me.$map;
-        let valueKey = updater.get('valueKey');
-        let key = e.params.key;
-        let item = valueKey ? map[key] : key;
+        let item = e.params.item;
         me.$oNode.trigger({
             type: 'pick',
             item: item,

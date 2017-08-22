@@ -12,16 +12,12 @@ module.exports = Magix.View.extend({
     init(extra) {
         let me = this;
         me.$list = extra.list || [];
-        let textKey = extra.textKey;
-        let valueKey = extra.valueKey;
-        me.$map = Magix.toMap(me.$list, valueKey);
         me.$oNode = $('#' + me.id);
         me.updater.set({
             disabled: extra.disabled,
             placeholder: extra.placeholder || '',
-            map: me.$map,
-            textKey: textKey,
-            valueKey: valueKey
+            textKey: extra.textKey,
+            valueKey: extra.valueKey
         });
         me.updateSelected(extra.selected);
     },
@@ -72,18 +68,22 @@ module.exports = Magix.View.extend({
         selected = (selected + '').split(',');
         let items = [];
         let sMap = {};
-        let map = me.$map;
-        let textKey = me.updater.get('textKey');
-        for (let i = 0, one; i < selected.length; i++) {
-            one = selected[i];
-            if (one) {
-                sMap[one] = 1;
-                items.push(textKey ? map[one] : one);
+        let updater = me.updater;
+        let textKey = updater.get('textKey');
+        let valueKey = updater.get('valueKey');
+        let list = me.$list;
+        let ssMap = Magix.toMap(selected);
+        for (let i = 0, one, key; i < list.length; i++) {
+            one = list[i];
+            key = valueKey ? one[valueKey] : one;
+            if (Magix.has(ssMap, key)) {
+                sMap[key] = 1;
+                items.push(textKey ? one[textKey] : one);
             }
         }
         me.updater.set({
-            sMap: sMap,
-            items: items
+            sMap,
+            items
         });
         me.$oNode.val(selected.join(','));
     },
@@ -111,8 +111,8 @@ module.exports = Magix.View.extend({
         }
         $('#' + me.id).val(ids.join(',')).trigger({
             type: 'change',
-            ids: ids,
-            items: updater.get('items')
+            ids,
+            items
         });
     },
     focus() {
@@ -142,7 +142,7 @@ module.exports = Magix.View.extend({
             if (idx > -1) {
                 me['delete<click>']({
                     params: {
-                        idx: idx
+                        idx
                     }
                 });
                 me.focus();
@@ -162,7 +162,7 @@ module.exports = Magix.View.extend({
         sMap[id] = 1;
         items.push(item);
         updater.digest({
-            items: items,
+            items,
             scrollTop: e.scrollTop,
             list: me.getSuggest()
         });
@@ -188,7 +188,7 @@ module.exports = Magix.View.extend({
         delete sMap[valueKey ? item[valueKey] : item];
         items.splice(e.params.idx, 1);
         updater.digest({
-            items: items,
+            items,
             list: me.getSuggest()
         });
         me.updateTrigger();

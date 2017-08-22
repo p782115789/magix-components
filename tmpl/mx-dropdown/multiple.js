@@ -33,7 +33,7 @@ module.exports = Magix.View.extend({
                 item = $(item);
                 group = item.attr('group') == 'true';
                 list.push({
-                    group: group,
+                    group,
                     text: item.text(),
                     value: group ? Magix.guid() : item.attr('value')
                 });
@@ -41,14 +41,14 @@ module.exports = Magix.View.extend({
             me.updater.set({
                 textKey: 'text',
                 valueKey: 'value',
-                list: list
+                list
             });
         }
         if (data.disabled) {
             node.addClass('@multiple.less:notallowed');
         }
         me.updateList(data.list);
-        me.updateSelected(data.selected || '');
+        me.updateSelected(data.selected);
     },
     hide(ignoreBak) {
         let me = this;
@@ -110,6 +110,7 @@ module.exports = Magix.View.extend({
     },
     updateSelected(selected) {
         let me = this;
+        selected = selected || '';
         selected += '';
         let updater = me.updater;
         let data = updater.get();
@@ -212,7 +213,7 @@ module.exports = Magix.View.extend({
             if (val != me.$lVal) {
                 me.search(me.$lVal = val, (list) => {
                     me.updater.digest({
-                        list: list
+                        list
                     });
                 });
             }
@@ -256,7 +257,7 @@ module.exports = Magix.View.extend({
         }
         selected = keys.join(',');
         updater.digest({
-            selected: selected
+            selected
         });
     },
     'stop<change,focusin,focusout>' (e) {
