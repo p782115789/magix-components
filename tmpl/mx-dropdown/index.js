@@ -85,20 +85,20 @@ module.exports = Magix.View.extend({
         list = (list || []).slice();
         let textKey = data.textKey || '';
         let valueKey = data.valueKey || '';
-        if (data.defaultText) {
+        if (data.emptyText) {
             if (textKey && valueKey) {
                 let temp = {};
-                temp[textKey] = data.defaultText;
+                temp[textKey] = data.emptyText;
                 temp[valueKey] = '';
                 list.unshift(temp);
             } else {
-                list.unshift(data.defaultText);
+                list.unshift(data.emptyText);
             }
         }
         let map = Magix.toMap(list, valueKey);
         me.$list = list;
-        if (!selected && data.defaultText && !(textKey || valueKey)) {
-            selected = data.defaultText;
+        if (!selected && data.emptyText && !(textKey || valueKey)) {
+            selected = data.emptyText;
         }
         if (!selected || !map[selected]) { //未提供选项，或提供的选项不在列表里，则默认第一个
             selected = map[selected] || list[0];

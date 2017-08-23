@@ -134,7 +134,7 @@ module.exports = Magix.View.extend({
             node.remove();
         }
         let data = me.updater.get();
-        $('#' + me.id).append(me.wrapEvent('<input id="' + nodeId + '" type="file" class="@index.css:file" mx-change="\u001f\u001eupload()" name="' + data.name + '" />')).addClass('@index.css:pr');
+        $('#' + me.id).append(me.wrapEvent('<input id="' + nodeId + '" type="file" class="@index.css:file" mx-change="\u001f\u001eupload()" name="' + data.name + '" />')).addClass('@index.css:pro');
         node = $('#' + nodeId);
         if (data.multiple) node.attr('multiple', 'multiple');
         if (data.accept) node.prop('accept', data.accept);

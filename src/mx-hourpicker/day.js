@@ -3,9 +3,9 @@
     author: kooboy_li@163.com
     loader: cmd
  */
-define('mx-hourpicker/day',["magix","$","./index"],function(require,exports,module){
+define('mx-hourpicker/day',["magix","$","./index","./index"],function(require,exports,module){
 /*Magix,$,Core*/
-
+require("./index");
 /*
     author:xinglie.lkf@alibaba-inc.com
  */

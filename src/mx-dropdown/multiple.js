@@ -70,7 +70,14 @@ module.exports = Magix.View.extend({
                     me.updateSelected(data.bakSelected);
                 }
                 if (fired) {
-                    me.$oNode.val(data.selected).trigger('change');
+                    me.$oNode.val(data.selected).trigger({
+                        type: 'change',
+                        keys: {
+                            text: data.textKey,
+                            value: data.valueKey
+                        },
+                        values: (data.selected + '').split(',')
+                    });
                 }
                 delete data.bakSelected;
             }
@@ -150,14 +157,14 @@ module.exports = Magix.View.extend({
         list = (list || []).slice();
         let textKey = data.textKey || '';
         let valueKey = data.valueKey || '';
-        if (data.defaultText) {
+        if (data.emptyText) {
             if (textKey && valueKey) {
                 let temp = {};
-                temp[textKey] = data.defaultText;
+                temp[textKey] = data.emptyText;
                 temp[valueKey] = '';
                 list.unshift(temp);
             } else {
-                list.unshift(data.defaultText);
+                list.unshift(data.emptyText);
             }
         }
         let map = Magix.toMap(list, valueKey);
@@ -245,7 +252,7 @@ module.exports = Magix.View.extend({
             selected = item[valueKey];
         }
         let keys = [''];
-        if (selectedText != data.defaultText || selected) {
+        if (selectedText != data.emptyText || selected) {
             keys = data.selected.split(',');
         }
         let idx = $.inArray('', keys);
@@ -259,7 +266,7 @@ module.exports = Magix.View.extend({
             keys.splice(idx, 1);
         }
         if (!keys.length) {
-            if (data.defaultText) {
+            if (data.emptyText) {
                 keys = [''];
             }
         }

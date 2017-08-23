@@ -3,9 +3,9 @@
     author: kooboy_li@163.com
     loader: cmd
  */
-define('mx-pagination/index',["magix","$"],function(require,exports,module){
+define('mx-pagination/index',["magix","$","../mx-dropdown/index"],function(require,exports,module){
 /*Magix,$*/
-
+require("../mx-dropdown/index");
 /*
     author:xinglie.lkf@alibaba-inc.com
  */

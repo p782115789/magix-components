@@ -1,9 +1,45 @@
-<button
+<h2>mx-uploader</h2>
+<div class="pt20 clearfix">
+    <button
         class="btn btn-brand"
         mx-view="mx-uploader/index"
         view-action="./"
         view-name="file1"
         view-multiple="true"
         mx-error="showError()"
+        mx-success="showSuccess()"
         mx-progress="showProgress()"
     >上传文件</button>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;button
+    class="btn btn-brand"
+    mx-view="app/gallery/mx-uploader/index"
+    view-action="./"
+    view-name="file1"
+    view-multiple="true"
+    mx-error="showError()"
+    mx-success="showSuccess()"
+    mx-progress="showProgress()"
+&gt;上传文件&lt;/button&gt;</pre>
+    <div class="pt10">Javascript Code:</div>
+    <pre>let Magix = require('magix');
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    render() {
+        let me = this;
+        me.updater.digest();
+    },
+    'showError&lt;error&gt;' (e) {
+        console.log(e.error);
+    },
+    'showSuccess&lt;success&gt;' (e) {
+        console.log(e.response);
+    },
+    'showProgress&lt;progress&gt;' (e) {
+        console.log(e.percent);
+    }
+});</pre>
+</div>

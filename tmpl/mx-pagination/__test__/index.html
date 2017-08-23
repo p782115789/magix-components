@@ -1,4 +1,6 @@
-<div style="padding-top: 50px;" class="clearfix">
+<h2>mx-pagination</h2>
+<h3>完整模式</h3>
+<div class="pt20 clearfix">
     <div mx-view="mx-pagination/index"
         view-total="2000"
         view-step="5"
@@ -6,19 +8,81 @@
     </div>
 </div>
 
-<div class="clearfix">
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;div mx-view="app/gallery/mx-pagination/index"
+    view-total="2000"
+    view-step="5"
+    view-page="15" class="fl"&gt;
+&lt;/div&gt;</pre>
+</div>
+
+<h3 class="mt30">简单模式</h3>
+<div class="pt20 clearfix">
     <div mx-view="mx-pagination/index"
         view-total="2000"
-        view-step="3"
-        view-page="15"
-        view-simplify="<%@true%>" class="fl">
+        view-step="5"
+        view-simplify="<%@true%>"
+        view-page="15" class="fl">
     </div>
 </div>
-<div class="clearfix">
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;div mx-view="app/gallery/mx-pagination/index"
+    view-total="2000"
+    view-step="5"
+    view-simplify="&lt;%@ true %&gt;"
+    view-page="15" class="fl"&gt;
+&lt;/div&gt;</pre>
+</div>
+
+<h3 class="mt30">迷你模式</h3>
+<div class="pt20 clearfix">
     <div mx-view="mx-pagination/index"
         view-total="2000"
-        view-step="1"
-        view-page="15"
-        view-mini="<%@true%>" class="fl">
+        view-step="5"
+        view-mini="<%@true%>"
+        view-page="15" class="fl">
     </div>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;div mx-view="app/gallery/mx-pagination/index"
+    view-total="2000"
+    view-step="5"
+    view-mini="&lt;%@ true %&gt;"
+    view-page="15" class="fl"&gt;
+&lt;/div&gt;</pre>
+</div>
+
+<h3 class="mt30">监听change事件</h3>
+<div class="pt20 clearfix">
+    <div mx-view="mx-pagination/index"
+        view-total="2000"
+        view-step="5"
+        view-page="15"  mx-change="show()" class="fl">
+    </div>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;div mx-view="app/gallery/mx-pagination/index"
+    view-total="2000"
+    view-step="5"
+    view-page="15" mx-change="show()" class="fl"&gt;
+&lt;/div&gt;</pre>
+<div class="pt10">Javascript Code:</div>
+    <pre>let Magix = require('magix');
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    render() {
+        let me = this;
+        me.updater.digest();
+    },
+    'show&lt;change&gt;' (e) {
+        console.log(e.page, e.size);
+    }
+});</pre>
 </div>

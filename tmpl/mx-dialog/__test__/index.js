@@ -6,19 +6,29 @@ let Dialog = require('mx-dialog/index');
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
     mixins: [Dialog],
+    init(extra) {
+        this.updater.set(extra);
+    },
     render() {
         let me = this;
         me.updater.digest();
     },
     'alert<click>' () {
-        this.alert('xxx');
+        this.alert('xxx', () => {
+            console.log('确定被点击');
+        });
     },
     'confirm<click>' () {
-        this.confirm('xxx');
+        this.confirm('xxx', () => {
+            console.log('确定被点击');
+        }, () => {
+            console.log('取消被点击');
+        });
     },
     'view<click>' () {
-        this.mxDialog('@../mx-popover/index',{
-            width:900
+        this.mxDialog('@moduleId', {
+            inDialog: true,
+            width: 900
         });
     }
 });

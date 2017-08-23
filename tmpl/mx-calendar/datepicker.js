@@ -6,6 +6,7 @@ let $ = require('$');
 let Vframe = Magix.Vframe;
 let Monitor = require('../mx-monitor/index');
 let Wrapper = '@datepicker.html';
+require('./index');
 module.exports = Magix.View.extend({
     init(extra) {
         let me = this;

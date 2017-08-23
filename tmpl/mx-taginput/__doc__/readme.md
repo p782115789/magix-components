@@ -1,6 +1,8 @@
-#### 使用
+## 标签选择组件
 
-[在线示例](https://magix-components.github.io/magix-components/#!/mx-taginput/index)
+### 使用
+
+<a href="https://magix-components.github.io/magix-components/#!/mx-taginput/index" target="_blank">在线示例</a>
 ```
 <div mx-view="app/gallery/mx-taginput/index"
     view-list="<%@ list %>"
@@ -8,9 +10,9 @@
 ></div>
 ```
 
-## API
+### API
 
-### options
+#### options
 | 参数 | 说明 | 类型 | 默认值 |
 | -------- | -------- | -------- | -------- |
 | list    | 选择的标签列表 | array | 必填 |
@@ -20,16 +22,16 @@
 | placeholder  | 提示内容 | string | '' |
 
 
-### method
+#### method
 
 | 方法名 | 说明 | 入参 | 返回值 |
 | -------- | -------- | -------- | -------- |
 | val | 设置或获取选中的ids值 | array | array |
 
-> method调用方法： $('#id').invokeView('methodname',[methodParams]);
+> method调用方法： $('#id').invokeView('val',[['分类1','分类2']]);
 
 
-### event
+#### event
 #### change 选择的标签改变时触发
 
 | 参数名称 | 参数类型 | 说明 |

@@ -11,7 +11,7 @@ define('mx-uploader/index',["magix","$"],function(require,exports,module){
  */
 let Magix = require('magix');
 let $ = require('$');
-Magix.applyStyle("mx3e3-_mx-uploader_index_",".mx3e3-_mx-uploader_index_-pr{\n    position: relative;\n    overflow: hidden;\n}\n.mx3e3-_mx-uploader_index_-file{\n    position: absolute;\n    left:0;\n    top:0;\n    bottom: 0;\n    right: 0;\n    width: 100%;\n    height: 100%;\n    opacity: 0;\n    cursor: pointer;\n    font-size:100px;\n    filter: alpha(opacity=0);\n}\n.mx3e3-_mx-uploader_index_-cnt{\n    position: absolute;\n    left:-999999px;\n}");
+Magix.applyStyle("mx3e3-_mx-uploader_index_",".mx3e3-_mx-uploader_index_-pro{\n    position: relative;\n    overflow: hidden;\n}\n.mx3e3-_mx-uploader_index_-file{\n    position: absolute;\n    left:0;\n    top:0;\n    bottom: 0;\n    right: 0;\n    width: 100%;\n    height: 100%;\n    opacity: 0;\n    cursor: pointer;\n    font-size:100px;\n    filter: alpha(opacity=0);\n}\n.mx3e3-_mx-uploader_index_-cnt{\n    position: absolute;\n    left:-999999px;\n}");
 let Uploader = Magix.Base.extend({
     destroy() {
         let me = this;
@@ -142,7 +142,7 @@ module.exports = Magix.View.extend({
             node.remove();
         }
         let data = me.updater.get();
-        $('#' + me.id).append(me.wrapEvent('<input id="' + nodeId + '" type="file" class="mx3e3-_mx-uploader_index_-file" mx-change="\u001f\u001eupload()" name="' + data.name + '" />')).addClass('mx3e3-_mx-uploader_index_-pr');
+        $('#' + me.id).append(me.wrapEvent('<input id="' + nodeId + '" type="file" class="mx3e3-_mx-uploader_index_-file" mx-change="\u001f\u001eupload()" name="' + data.name + '" />')).addClass('mx3e3-_mx-uploader_index_-pro');
         node = $('#' + nodeId);
         if (data.multiple) node.attr('multiple', 'multiple');
         if (data.accept) node.prop('accept', data.accept);

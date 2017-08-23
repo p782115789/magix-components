@@ -31,3 +31,13 @@ module.exports = Magix.View.extend({
 });
 '@../mx-calendar/__test__/index.js';
 '@../mx-taginput/__test__/index.js';
+'@../mx-calendar/__test__/datepicker.js';
+'@../mx-calendar/__test__/rangepicker.js';
+'@../mx-dialog/__test__/index.js';
+'@../mx-dropdown/__test__/index.js';
+'@../mx-gtip/__test__/index.js';
+'@../mx-pagination/__test__/index.js';
+'@../mx-popover/__test__/index.js';
+'@../mx-time/__test__/index.js';
+'@../mx-time/__test__/picker.js';
+'@../mx-uploader/__test__/index.js';

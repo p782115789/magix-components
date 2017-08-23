@@ -3,9 +3,9 @@
     author: kooboy_li@163.com
     loader: cmd
  */
-define('mx-time/picker',["magix","$","../mx-monitor/index"],function(require,exports,module){
+define('mx-time/picker',["magix","$","../mx-monitor/index","./index"],function(require,exports,module){
 /*Magix,$,Monitor*/
-
+require("./index");
 /*
     author:xinglie.lkf@alibaba-inc.com
  */

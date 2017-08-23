@@ -7,5 +7,8 @@ module.exports = Magix.View.extend({
     render() {
         let me = this;
         me.updater.digest();
+    },
+    'show<change>' (e) {
+        console.log(e.page, e.size);
     }
 });

@@ -232,9 +232,9 @@ module.exports = Magix.View.extend({
     author: kooboy_li@163.com
     loader: cmd
  */
-define('mx-taginput/index',["magix","$"],function(require,exports,module){
+define('mx-taginput/index',["magix","$","./suggest"],function(require,exports,module){
 /*Magix,$*/
-
+require("./suggest");
 ;
 /*
     author:xinglie.lkf@alibaba-inc.com

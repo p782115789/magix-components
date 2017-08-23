@@ -3,7 +3,6 @@
  */
 let Magix = require('magix');
 let GTip = require('mx-gtip/index');
-Magix.applyStyle('@index.css');
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
     mixins: [GTip],

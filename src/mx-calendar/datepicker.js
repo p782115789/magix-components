@@ -3,7 +3,7 @@
     author: kooboy_li@163.com
     loader: cmd
  */
-define('mx-calendar/datepicker',["magix","$","../mx-monitor/index"],function(require,exports,module){
+define('mx-calendar/datepicker',["magix","$","../mx-monitor/index","./index"],function(require,exports,module){
 /*Magix,$,Monitor*/
 
 /*
@@ -14,6 +14,7 @@ let $ = require('$');
 let Vframe = Magix.Vframe;
 let Monitor = require('../mx-monitor/index');
 let Wrapper = "<div style=\"position:absolute;display:none;z-index:10\" mx-change=\"\u001f\u001epickDate()\" mx-cancel=\"\u001f\u001ehide()\"></div>";
+require('./index');
 module.exports = Magix.View.extend({
     init(extra) {
         let me = this;

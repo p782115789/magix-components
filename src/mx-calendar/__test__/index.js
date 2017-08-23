@@ -3,22 +3,23 @@
     author: kooboy_li@163.com
     loader: cmd
  */
-define('mx-calendar/__test__/index',["magix"],function(require,exports,module){
-/*Magix*/
-
+define('mx-calendar/__test__/index',["magix","mx-gtip/index","../index"],function(require,exports,module){
+/*Magix,GTip*/
+require("../index");
 /*
     author:xinglie.lkf@alibaba-inc.com
  */
 let Magix = require('magix');
-Magix.applyStyle("mx3e3-_mx-calendar___test___index_","@charset \"UTF-8\";");
+let GTip = require('mx-gtip/index');
 module.exports = Magix.View.extend({
-    tmpl: {"html":"<div class=\"mx3e3-_mx-style_index_-fl\" mx-view=\"mx-calendar/index?weekStart=<%@1%>&timeTypes=hour%2Cminute&selected=2016-3-2%2012%3A12%3A12\" mx-change=\"\u001f\u001eshow();\"></div><div class=\"mx3e3-_mx-style_index_-fl\" mx-view=\"mx-calendar/index?min=2017-03-30\" mx-change=\"\u001f\u001eshow();\"></div><input class=\"mx3e3-_mx-style_index_-input\" mx-view=\"mx-calendar/datepicker?timeTypes=all\" mx-change=\"\u001f\u001eshow()\" value=\"2017-11-22 14:55:10\"> <input class=\"mx3e3-_mx-style_index_-input\" value=\"2018-09-20\" mx-view=\"mx-calendar/datepicker\"> <input class=\"mx3e3-_mx-style_index_-input\" mx-view=\"mx-calendar/rangepicker?placement=bottom&align=left&timeTypes=all&end=2019-3-2%2011%3A9%3A9\"> <input class=\"mx3e3-_mx-style_index_-input\" mx-view=\"mx-calendar/rangepicker?placement=bottom&align=right&end=2019-3-2%2011%3A9%3A9\">","subs":[],"file":"mx-calendar/__test__/index.html"},
+    tmpl: {"html":"<h2>mx-calendar</h2><h3>默认情形</h3><div class=\"mx3e3-_mx-style_index_-pt20 mx3e3-_mx-style_index_-clearfix\"><div mx-view=\"mx-calendar/index\"></div></div><div class=\"mx3e3-_mx-style_index_-pt20\"><div>HTML Code:</div><pre>&lt;div mx-view=\"app/gallery/mx-calendar/index\"&gt;&lt;/div&gt;</pre></div><h3 class=\"mx3e3-_mx-style_index_-mt30\">默认选中某天</h3><div class=\"mx3e3-_mx-style_index_-pt20 mx3e3-_mx-style_index_-clearfix\"><div mx-view=\"mx-calendar/index?selected=2018-01-01\"></div></div><div class=\"mx3e3-_mx-style_index_-pt20\"><div>HTML Code:</div><pre>&lt;div mx-view=\"app/gallery/mx-calendar/index\"\n    view-selected=\"2018-01-01\"\n&gt;&lt;/div&gt;</pre></div><h3 class=\"mx3e3-_mx-style_index_-mt30\">设置可选择的范围</h3><div class=\"mx3e3-_mx-style_index_-pt20 mx3e3-_mx-style_index_-clearfix\"><div mx-view=\"mx-calendar/index?min=2017-08-05&max=2017-08-22&selected=2017-08-12\"></div></div><div class=\"mx3e3-_mx-style_index_-pt20\"><div>HTML Code:</div><pre>&lt;div mx-view=\"app/gallery/mx-calendar/index\"\n    view-min=\"2017-08-05\"\n    view-max=\"2017-08-22\"\n    view-selected=\"2017-08-12\"\n&gt;&lt;/div&gt;</pre></div><h3 class=\"mx3e3-_mx-style_index_-mt30\">设置周二为一周的开始</h3><div class=\"mx3e3-_mx-style_index_-pt20 mx3e3-_mx-style_index_-clearfix\"><div mx-view=\"mx-calendar/index?weekStart=<%@ 2%>\"></div></div><div class=\"mx3e3-_mx-style_index_-pt20\"><div>HTML Code:</div><pre>&lt;div mx-view=\"app/gallery/mx-calendar/index\"\n    view-week-start=\"&lt;%@ 2 %&gt;\"\n&gt;&lt;/div&gt;</pre></div><h3 class=\"mx3e3-_mx-style_index_-mt30\">带时分秒</h3><div class=\"mx3e3-_mx-style_index_-pt20 mx3e3-_mx-style_index_-clearfix\"><div mx-view=\"mx-calendar/index?timeTypes=all\"></div></div><div class=\"mx3e3-_mx-style_index_-pt20\"><div>HTML Code:</div><pre>&lt;div mx-view=\"app/gallery/mx-calendar/index\"\n    view-time-types=\"all\"\n&gt;&lt;/div&gt;</pre></div><h3 class=\"mx3e3-_mx-style_index_-mt30\">带时分秒的选中</h3><div class=\"mx3e3-_mx-style_index_-pt20 mx3e3-_mx-style_index_-clearfix\"><div mx-view=\"mx-calendar/index?timeTypes=all&selected=2018-08-08%2018%3A08%3A20\"></div></div><div class=\"mx3e3-_mx-style_index_-pt20\"><div>HTML Code:</div><pre>&lt;div mx-view=\"app/gallery/mx-calendar/index\"\n    view-time-types=\"all\"\n    view-selected=\"2018-08-08 18:08:20\"\n&gt;&lt;/div&gt;</pre></div><h3 class=\"mx3e3-_mx-style_index_-mt30\">带时分秒,只能选择小时和分钟</h3><div class=\"mx3e3-_mx-style_index_-pt20 mx3e3-_mx-style_index_-clearfix\"><div mx-view=\"mx-calendar/index?timeTypes=hour%2Cminute\"></div></div><div class=\"mx3e3-_mx-style_index_-pt20\"><div>HTML Code:</div><pre>&lt;div mx-view=\"app/gallery/mx-calendar/index\"\n    view-time-types=\"hour,minute\"\n&gt;&lt;/div&gt;</pre></div><h3 class=\"mx3e3-_mx-style_index_-mt30\">change事件</h3><div class=\"mx3e3-_mx-style_index_-pt20 mx3e3-_mx-style_index_-clearfix\"><div mx-view=\"mx-calendar/index?timeTypes=all&selected=2018-08-08%2018%3A08%3A20\" mx-change=\"\u001f\u001eshowDatetime()\"></div></div><div class=\"mx3e3-_mx-style_index_-pt20\"><div>HTML Code:</div><pre>&lt;div mx-view=\"app/gallery/mx-calendar/index\"\n    view-time-types=\"all\"\n    view-selected=\"2018-08-08 18:08:20\"\n    mx-change=\"showDatetime()\"\n&gt;&lt;/div&gt;</pre><div class=\"mx3e3-_mx-style_index_-pt10\">Javascript Code:</div><pre>let Magix = require('magix');\nlet GTip = require('mx-gtip/index');\nmodule.exports = Magix.View.extend({\n    tmpl: '@index.html',\n    mixins: [GTip],\n    render() {\n        let me = this;\n        me.updater.digest();\n    },\n    'showDatetime&lt;change&gt;' (e) {\n        this.gtipRT('日期：' + e.date + '，时间：' + e.time);\n    }\n});</pre></div>","subs":[],"file":"mx-calendar/__test__/index.html"},
+    mixins: [GTip],
     render() {
         let me = this;
         me.updater.digest();
     },
-    'show<change>' (e) {
-        console.log(e.date, e.time);
+    'showDatetime<change>' (e) {
+        this.gtipRT('日期：' + e.date + '，时间：' + e.time);
     }
 });
 });

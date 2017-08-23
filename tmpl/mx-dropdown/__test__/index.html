@@ -1,52 +1,354 @@
-<div class="pt20">
+<h2>mx-dropdown</h2>
+<h3>单选</h3>
+<div class="pt20 clearfix">
     <div mx-view="mx-dropdown/index"
         view-searchbox="true"
-        view-default-text="请选择日期"
-        class="fl mr10" style="width:150px;">
+        view-empty-text="请选择日期"
+        mx-change="showWeek()"
+        class="fl" style="width:150px;">
+        <item value="mon">周一</item>
+        <item value="wed">周三</item>
+        <item value="thu">周四</item>
+        <item value="fri">周五</item>
+        <item value="sat">周六</item>
+    </div>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;div mx-view="app/gallery/mx-dropdown/index"
+    view-searchbox="true"
+    view-empty-text="请选择日期"
+    mx-change="showWeek()"
+    class="fl" style="width:150px;"&gt;
+    &lt;item value="mon"&gt;周一&lt;/item&gt;
+    &lt;item value="wed"&gt;周三&lt;/item&gt;
+    &lt;item value="thu"&gt;周四&lt;/item&gt;
+    &lt;item value="fri"&gt;周五&lt;/item&gt;
+    &lt;item value="sat"&gt;周六&lt;/item&gt;
+&lt;/div&gt;</pre>
+    <div class="pt10">Javascript Code:</div>
+    <pre>let Magix = require('magix');
+let GTip = require('app/gallery/mx-gtip/index');
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    mixins: [GTip],
+    render() {
+        let me = this;
+        me.updater.digest();
+    },
+    'showWeek&lt;change&gt;' (e) {
+        this.gtipRB('text:' + e.text + ',value:' + e.value);
+    }
+});</pre>
+</div>
+
+<h3 class="mt30">单选带分组</h3>
+<div class="pt20 clearfix">
+    <div mx-view="mx-dropdown/index"
+        view-searchbox="true"
+        view-empty-text="请选择日期"
+        mx-change="showWeek()"
+        class="fl" style="width:150px;">
         <item group="true">本周日期</item>
-        <item value="b">周一</item>
-        <item value="a1">周三</item>
-        <item value="b2">周四</item>
-        <item value="a3">周五</item>
-        <item value="b4">周六</item>
+        <item value="mon">周一</item>
+        <item value="wed">周三</item>
+        <item value="thu">周四</item>
+        <item value="fri">周五</item>
+        <item value="sat">周六</item>
         <item group="true">下周日期</item>
-        <item value="b6">下周三</item>
-        <item value="a7">下周四</item>
-        <item value="b8">下周五</item>
-        <item value="a9">下周六</item>
-        <item value="b0">下周日</item>
+        <item value="next-mon">下周一</item>
+        <item value="next-wed">下周三</item>
+        <item value="next-thu">下周四</item>
+        <item value="next-fri">下周五</item>
+        <item value="next-sat">下周六</item>
     </div>
-    <div mx-view="mx-dropdown/multiple" view-searchbox="true" view-default-text="multiple select" class="fl ml10 mr10">
-        <item value="a">aaa</item>
-        <item value="b" group="true">bbb</item>
-        <item value="a1">aaa</item>
-        <item value="b2">bbb</item>
-        <item value="a3">aaa</item>
-        <item value="b4" group="true">bbb</item>
-        <item value="a5">aaa</item>
-        <item value="b6" group="true">bbb</item>
-        <item value="a7">aaa</item>
-        <item value="b8" group="true">bbb</item>
-        <item value="a9">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</item>
-        <item value="b0">bbb</item>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;div mx-view="app/gallery/mx-dropdown/index"
+    view-searchbox="true"
+    view-empty-text="请选择日期"
+    mx-change="showWeek()"
+    class="fl" style="width:150px;"&gt;
+    &lt;item group="true"&gt;本周日期&lt;/item&gt;
+    &lt;item value="mon"&gt;周一&lt;/item&gt;
+    &lt;item value="wed"&gt;周三&lt;/item&gt;
+    &lt;item value="thu"&gt;周四&lt;/item&gt;
+    &lt;item value="fri"&gt;周五&lt;/item&gt;
+    &lt;item value="sat"&gt;周六&lt;/item&gt;
+    &lt;item group="true"&gt;下周日期&lt;/item&gt;
+    &lt;item value="next-mon"&gt;下周一&lt;/item&gt;
+    &lt;item value="next-wed"&gt;下周三&lt;/item&gt;
+    &lt;item value="next-thu"&gt;下周四&lt;/item&gt;
+    &lt;item value="next-fri"&gt;下周五&lt;/item&gt;
+    &lt;item value="next-sat"&gt;下周六&lt;/item&gt;
+&lt;/div&gt;</pre>
+    <div class="pt10">Javascript Code:</div>
+    <pre>let Magix = require('magix');
+let GTip = require('app/gallery/mx-gtip/index');
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    mixins: [GTip],
+    render() {
+        let me = this;
+        me.updater.digest();
+    },
+    'showWeek&lt;change&gt;' (e) {
+        this.gtipRB('text:' + e.text + ',value:' + e.value);
+    }
+});</pre>
+</div>
+
+<h3 class="mt30">动态数据并设置选中</h3>
+<div class="pt20 clearfix">
+    <div mx-view="mx-dropdown/index"
+        view-searchbox="true"
+        view-empty-text="请选择用户"
+        view-text-key="name"
+        view-value-key="id"
+        view-selected="<%@ userSelected %>"
+        view-list="<%@ userList %>"
+        mx-change="showUser()"
+        class="fl" style="width:200px;">
     </div>
-    <input type="" class="input" name="" disabled="">
-    <input type="" class="input" name="" disabled="">
-    <div mx-view="mx-dropdown/index" view-searchbox="true" view-disabled="true" class="fl ml10 mr10">
-        <item value="a">aaa</item>
-        <item value="b">bbb</item>
-        <item value="a1">aaa</item>
-        <item value="b2">bbb</item>
-        <item value="a3">aaa</item>
-        <item value="b4">bbb</item>
-        <item value="a5">aaa</item>
-        <item value="b6">bbb</item>
-        <item value="a7">aaa</item>
-        <item value="b8">bbb</item>
-        <item value="a9">aaa</item>
-        <item value="b0">bbb</item>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre lang="html">&lt;div mx-view="app/gallery/mx-dropdown/index"
+    view-searchbox="true"
+    view-empty-text="请选择用户"
+    view-text-key="name"
+    view-value-key="id"
+    view-selected="&lt;%@ userSelected %&gt;"
+    view-list="&lt;%@ userList %&gt;"
+    mx-change="showUser()"
+    class="fl" style="width:200px;"&gt;
+&lt;/div&gt;</pre>
+    <div class="pt10">Javascript Code:</div>
+    <pre>let Magix = require('magix');
+let GTip = require('app/gallery/mx-gtip/index');
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    mixins: [GTip],
+    render() {
+        let me = this;
+        me.updater.digest({
+            userList: [{
+                name: 'xinglie',
+                id: 58782
+            }, {
+                name: 'xinglie1',
+                id: 587821
+            }, {
+                name: 'xinglie2',
+                id: 587822
+            }, {
+                name: 'xinglie3',
+                id: 587823
+            }, {
+                name: 'xinglie4',
+                id: 587824
+            }, {
+                name: 'xinglie5',
+                id: 587825
+            }, {
+                name: 'xinglie6',
+                id: 587826
+            }, {
+                name: 'xinglie7',
+                id: 587827
+            }, {
+                name: 'xinglie8',
+                id: 587828
+            }, {
+                name: 'xinglie9',
+                id: 587829
+            }],
+            userSelected: 587828
+        });
+    },
+    'showUser&lt;change&gt;' (e) {
+        this.gtipRB('name:' + e.text + ',id:' + e.value);
+    }
+});</pre>
+</div>
+
+<h3 class="mt30">多选</h3>
+<div class="pt20 clearfix">
+    <div mx-view="mx-dropdown/multiple"
+        view-searchbox="true"
+        view-empty-text="请选择日期"
+        mx-change="showWeeks()"
+        class="fl" style="width:150px;">
+        <item value="mon">周一</item>
+        <item value="wed">周三</item>
+        <item value="thu">周四</item>
+        <item value="fri">周五</item>
+        <item value="sat">周六</item>
     </div>
-    <button class="btn" disabled="">button</button>
-    <input type="" class="input" name="" disabled="">
-    <textarea class="textarea"></textarea>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;div mx-view="app/gallery/mx-dropdown/multiple"
+    view-searchbox="true"
+    view-empty-text="请选择日期"
+    mx-change="showWeeks()"
+    class="fl" style="width:150px;"&gt;
+    &lt;item value="mon"&gt;周一&lt;/item&gt;
+    &lt;item value="wed"&gt;周三&lt;/item&gt;
+    &lt;item value="thu"&gt;周四&lt;/item&gt;
+    &lt;item value="fri"&gt;周五&lt;/item&gt;
+    &lt;item value="sat"&gt;周六&lt;/item&gt;
+&lt;/div&gt;</pre>
+    <div class="pt10">Javascript Code:</div>
+    <pre>let Magix = require('magix');
+let GTip = require('app/gallery/mx-gtip/index');
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    mixins: [GTip],
+    render() {
+        let me = this;
+        me.updater.digest();
+    },
+    'showWeeks&lt;change&gt;' (e) {
+        this.gtipRB('values:' + e.values);
+    }
+});</pre>
+</div>
+
+<h3 class="mt30">多选带分组</h3>
+<div class="pt20 clearfix">
+    <div mx-view="mx-dropdown/multiple"
+        view-searchbox="true"
+        view-empty-text="请选择日期"
+        mx-change="showWeeks()"
+        class="fl" style="width:150px;">
+        <item group="true">本周日期</item>
+        <item value="mon">周一</item>
+        <item value="wed">周三</item>
+        <item value="thu">周四</item>
+        <item value="fri">周五</item>
+        <item value="sat">周六</item>
+        <item group="true">下周日期</item>
+        <item value="next-mon">下周一</item>
+        <item value="next-wed">下周三</item>
+        <item value="next-thu">下周四</item>
+        <item value="next-fri">下周五</item>
+        <item value="next-sat">下周六</item>
+    </div>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre>&lt;div mx-view="app/gallery/mx-dropdown/multiple"
+    view-searchbox="true"
+    view-empty-text="请选择日期"
+    mx-change="showWeeks()"
+    class="fl" style="width:150px;"&gt;
+    &lt;item group="true"&gt;本周日期&lt;/item&gt;
+    &lt;item value="mon"&gt;周一&lt;/item&gt;
+    &lt;item value="wed"&gt;周三&lt;/item&gt;
+    &lt;item value="thu"&gt;周四&lt;/item&gt;
+    &lt;item value="fri"&gt;周五&lt;/item&gt;
+    &lt;item value="sat"&gt;周六&lt;/item&gt;
+    &lt;item group="true"&gt;下周日期&lt;/item&gt;
+    &lt;item value="next-mon"&gt;下周一&lt;/item&gt;
+    &lt;item value="next-wed"&gt;下周三&lt;/item&gt;
+    &lt;item value="next-thu"&gt;下周四&lt;/item&gt;
+    &lt;item value="next-fri"&gt;下周五&lt;/item&gt;
+    &lt;item value="next-sat"&gt;下周六&lt;/item&gt;
+&lt;/div&gt;</pre>
+    <div class="pt10">Javascript Code:</div>
+    <pre>let Magix = require('magix');
+let GTip = require('app/gallery/mx-gtip/index');
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    mixins: [GTip],
+    render() {
+        let me = this;
+        me.updater.digest();
+    },
+    'showWeeks&lt;change&gt;' (e) {
+        this.gtipRB('values:' + e.values);
+    }
+});</pre>
+</div>
+
+<h3 class="mt30">动态数据并设置选中</h3>
+<div class="pt20 clearfix">
+    <div mx-view="mx-dropdown/multiple"
+        view-searchbox="true"
+        view-empty-text="请选择用户"
+        view-text-key="name"
+        view-value-key="id"
+        view-selected="<%@ usersSelected %>"
+        view-list="<%@ userList %>"
+        mx-change="showUsers()"
+        class="fl" style="width:200px;">
+    </div>
+</div>
+
+<div class="pt20">
+    <div>HTML Code:</div>
+    <pre lang="html">&lt;div mx-view="app/gallery/mx-dropdown/mutiple"
+    view-searchbox="true"
+    view-empty-text="请选择用户"
+    view-text-key="name"
+    view-value-key="id"
+    view-selected="&lt;%@ usersSelected %&gt;"
+    view-list="&lt;%@ userList %&gt;"
+    mx-change="showUsers()"
+    class="fl" style="width:200px;"&gt;
+&lt;/div&gt;</pre>
+    <div class="pt10">Javascript Code:</div>
+    <pre>let Magix = require('magix');
+let GTip = require('app/gallery/mx-gtip/index');
+module.exports = Magix.View.extend({
+    tmpl: '@index.html',
+    mixins: [GTip],
+    render() {
+        let me = this;
+        me.updater.digest({
+            userList: [{
+                name: 'xinglie',
+                id: 58782
+            }, {
+                name: 'xinglie1',
+                id: 587821
+            }, {
+                name: 'xinglie2',
+                id: 587822
+            }, {
+                name: 'xinglie3',
+                id: 587823
+            }, {
+                name: 'xinglie4',
+                id: 587824
+            }, {
+                name: 'xinglie5',
+                id: 587825
+            }, {
+                name: 'xinglie6',
+                id: 587826
+            }, {
+                name: 'xinglie7',
+                id: 587827
+            }, {
+                name: 'xinglie8',
+                id: 587828
+            }, {
+                name: 'xinglie9',
+                id: 587829
+            }],
+            usersSelected: [58782,587829]
+        });
+    },
+    'showUsers&lt;change&gt;' (e) {
+        this.gtipRB('user ids:' + e.values);
+    }
+});</pre>
 </div>

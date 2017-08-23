@@ -11,6 +11,9 @@ module.exports = Magix.View.extend({
     'showError<error>' (e) {
         console.log(e.error);
     },
+    'showSuccess<success>' (e) {
+        console.log(e.response);
+    },
     'showProgress<progress>' (e) {
         console.log(e.percent);
     }

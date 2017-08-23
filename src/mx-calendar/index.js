@@ -3,9 +3,9 @@
     author: kooboy_li@163.com
     loader: cmd
  */
-define('mx-calendar/index',["magix","$"],function(require,exports,module){
+define('mx-calendar/index',["magix","$","../mx-time/index"],function(require,exports,module){
 /*Magix,$*/
-
+require("../mx-time/index");
 /*
     author:xinglie.lkf@taobao.com
  */
