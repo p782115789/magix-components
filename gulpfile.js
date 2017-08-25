@@ -7,6 +7,7 @@ let fs = require('fs');
 combineTool.config({
     debug: true,
     addTmplViewsToDependencies: true,
+    //multiBind:true,
     scopedCss: [
         './tmpl/mx-style/index.less'
     ]

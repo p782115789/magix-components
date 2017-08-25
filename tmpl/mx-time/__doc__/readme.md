@@ -40,7 +40,7 @@ module.exports = Magix.View.extend({
 
 
 #### event
-#### change 上传成功时触发
+#### change 时间变化时触发
 
 | 参数名称 | 参数类型 | 说明 |
 | -------- | -------- |

@@ -28,6 +28,7 @@ module.exports = Magix.View.extend({
     },
     'hour<change>' (e) {
         let me = this;
+        e.stopPropagation();
         me.$hours = e.hours;
     }
 });

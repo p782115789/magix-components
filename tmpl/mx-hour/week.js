@@ -126,6 +126,7 @@ module.exports = Magix.View.extend({
         me.syncUI();
     },
     'hour<change>' (e) {
+        e.stopPropagation();
         let me = this;
         me.$days[e.params.day] = e.range;
         clearTimeout(me.$timer);

@@ -137,6 +137,7 @@ module.exports = Magix.View.extend({
             }
         }
         updater.digest({
+            phLabel: selected === '',
             selected,
             selectedText: selectedText
         });

@@ -3,13 +3,12 @@
 
 .dropdown{
     position: relative;
-    display: inline-block;
-    width: 240px;
+    width: 340px;
     background-color: #fff;
-    text-align: left;
     font-size: @font-size;
     border:solid 1px @color-border;
     border-radius: @border-radius;
+    display: inline-block;
 }
 
 .dropdown:hover{
@@ -23,6 +22,7 @@
     user-select:none;
     padding: 0 30px 0 12px;
 }
+
 .notallowed{
     cursor: not-allowed;
     background-color: @color-disabled;
@@ -33,28 +33,22 @@
 .notallowed .dropdown-toggle{
     cursor: not-allowed;
 }
-.notallowed .up{
-    color: #a5a5a5;
-}
-.up,.down{
+.arrow{
     position: absolute;
     right: 0;
     top: (@input-height - 28)/2;
     font-size: 28px;
     color: @color-border;
+    transition: transform 0.3s,top 0.3s;
 }
-.open .down{
-    display: inline;
-}
-.open .up{
-    display: none;
+.open .arrow{
+    transform:rotate(180deg);
+    top:0;
 }
 
-.open,.open:hover{
+.open,
+.open:hover{
     border-color: @color-brand;
-}
-.down{
-    display: none;
 }
 .dropdown-toggle-label{
     height: @input-height - 2;
@@ -64,6 +58,12 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+
+.dropdown-toggle-label-ph{
+    color: @placeholder-color;
+}
+
 .dropdown-menu-wrapper{
     position: absolute;
     top: 100%;
@@ -115,6 +115,7 @@
 }
 .dropdown-item {
   padding: 0 4px;
+  margin:2px 0;
 }
 .item-link{
     color: @color-secondary;

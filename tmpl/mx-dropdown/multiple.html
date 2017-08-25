@@ -2,9 +2,8 @@
     class="dropdown-toggle"
     mx-click="toggle()" title="<%=selectedText%>"
 >
-    <span class="dropdown-toggle-label"><%=selectedText%></span>
-    <span class="iconfont up">&#xe786;</span>
-    <span class="iconfont down">&#xe692;</span>
+    <span class="dropdown-toggle-label<%if(phLabel){%> dropdown-toggle-label-ph<%}%>"><%=selectedText%></span>
+    <span class="iconfont arrow">&#xe692;</span>
 </div>
 <div class="dropdown-menu-wrapper">
     <%if(rList){%>

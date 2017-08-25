@@ -1,0 +1,39 @@
+<div style="width:600px">
+    <div class="form-item clearfix">
+        <label class="form-label">活动名称：</label>
+        <div class="form-content"><input class="input" placeholder="请填写活动名称" value="<%:name{required:true,blength:[20,50]}%>" /></div>
+    </div>
+
+    <div class="form-item">
+        <label class="form-label">活动时间：</label>
+        <div class="form-content">
+            <div mx-view="mx-dropdown/index"
+                view-searchbox="true"
+                view-empty-text="请选择日期"
+                mx-change="showWeek()"
+                view-selected="<%:day{required:true}%>" style="width:180px;">
+                <item value="mon">周一</item>
+                <item value="wed">周三</item>
+                <item value="thu">周四</item>
+                <item value="fri">周五</item>
+                <item value="sat">周六</item>
+            </div>
+            <!-- -
+            <input class="input" style="width:150px" placeholder="请选择时间" value="<%:time{required:true}%>" mx-view="mx-time/picker" /> -->
+        </div>
+    </div>
+
+    <div class="form-item">
+        <label class="form-label">活动区域：</label>
+        <div class="form-content">
+            <div mx-view="mx-taginput/index"
+                view-list="<%@list%>"
+                view-placeholder="请选择分类"
+                view-selected="<%:tags{required:true}%>"
+            ></div>
+        </div>
+    </div>
+    <div class="form-footer">
+        <button class="btn btn-brand" mx-click="isValid()">isValid</button>
+    </div>
+</div>

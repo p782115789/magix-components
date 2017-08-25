@@ -1,9 +1,9 @@
 <div class="wrapper unselectable">
     <div id="days_<%=id%>" class="clearfix">
         <div class="header">
-            <span class="iconfont minus" mx-click="changeMonth()">&#xe61e;</span>
+            <span class="iconfont minus fl" mx-click="changeMonth()">&#xe61e;</span>
             <h4 mx-click="showMonths()" class="title"><%=year%>-<%=month<10?'0'+month:month%></h4>
-            <span class="iconfont plus" mx-click="changeMonth({next:true})">&#xe61b;</span>
+            <span class="iconfont plus rotate180 fr" mx-click="changeMonth({next:true})">&#xe61e;</span>
         </div>
         <div class="body">
              <div class="weeks clearfix">
@@ -33,9 +33,9 @@
 
     <div id="months_<%=id%>" class="clearfix m-panel">
         <div class="header">
-            <span class="iconfont minus" mx-click="changeYear()">&#xe61e;</span>
+            <span class="iconfont minus fl" mx-click="changeYear()">&#xe61e;</span>
             <h4 mx-click="showYears()" class="title"><%=year%></h4>
-            <span class="iconfont plus" mx-click="changeYear({next:true})">&#xe61b;</span>
+            <span class="iconfont plus fr rotate180" mx-click="changeYear({next:true})">&#xe61e;</span>
         </div>
         <div class="body">
             <%for(var i=0,m;i<months.length;i++){%>
@@ -47,9 +47,9 @@
 
     <div id="years_<%=id%>" class="clearfix y-panel">
         <div class="header">
-            <span class="iconfont minus" mx-click="changeYear({range:true})">&#xe61e;</span>
+            <span class="iconfont minus fl" mx-click="changeYear({range:true})">&#xe61e;</span>
             <h4 class="title"><%=startYear%>-<%=endYear%></h4>
-            <span class="iconfont plus" mx-click="changeYear({range:true,next:true})">&#xe61b;</span>
+            <span class="iconfont plus fr rotate180" mx-click="changeYear({range:true,next:true})">&#xe61e;</span>
         </div>
         <div class="body">
             <%for(var i=0,y;i<years.length;i++){%>
