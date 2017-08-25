@@ -95,7 +95,6 @@ module.exports = Magix.View.extend({
             let oldLen = node.html().length;
             node.html(v);
             if (v.length != oldLen) {
-                console.log(v.length);
                 node.css({
                     left: Math.floor(vars.half - vars.pLabel.width() / 2) - 1
                 });

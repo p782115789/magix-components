@@ -61,8 +61,7 @@
 <div mx-view="mx-slider/range"
     view-max="200"
     view-min="100"
-    view-start="30"
-    view-end="150"
+    view-value="30,150"
     view-step="0.05"
     class="fl"
 ></div>
@@ -74,8 +73,7 @@
 #### options
 | 参数 | 说明 | 类型 | 默认值 |
 | -------- | -------- | -------- | -------- |
-| start    | 开始滑块的值 | number | 0 |
-| end    | 结束滑块的值 | number | 0 |
+| value    | 逗号分割的值 | string | 0,0 |
 | min     | 区间最小值 | number | 0 |
 | max     | 区间最大值 | number | 100 |
 | step     | 步长 | number | 1 |

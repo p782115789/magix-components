@@ -32,12 +32,14 @@ module.exports = Magix.View.extend({
 ```
 
 ### API
+#### method
 
-#### options
-| 参数 | 说明 | 类型 | 默认值 |
-| -------- | -------- | -------- | -------- |
-| msg    | 提示内容 | string |  |
-| dock     | 停靠位置 | string | rt |
-| timeout     | 多久消失，毫秒 | number | 3000ms |
+| 方法名 | 说明 | 入参 | 返回值 | 说明 |
+| -------- | -------- | -------- | -------- | -------- |
+| gtipRT | 右上角提示 | msg,timeout | void | &nbsp; |
+| gtipRB | 右下角提示 | msg,timeout | void | &nbsp; |
+| gtipLT | 左上角提示 | msg,timeout | void | &nbsp; |
+| gtipLB | 左下角提示 | msg,timeout | void | &nbsp; |
 
+> method调用方法： this.gtipRT('msg',1000);
 

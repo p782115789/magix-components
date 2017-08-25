@@ -28,7 +28,7 @@ magixCombine.config({
 | -------- | -------- |
 | `.btn`  `.btn-brand`    | 按钮，只定义了btn普通按钮及btn-brand带品牌色的按钮 |
 | `.dialog-header`  `.dialog-body` `.dialog-footer`    | 对话框样式 |
-| `.input`  `.textarea`     | 输入框样式 |
+| `.input`  `.textarea` `.checkbox` `.radio` `.form-item` `.form-label` `.form-required` `.form-content` `.form-footer`     | 输入框样式及表单样式 |
 | `.loading`  `.loading-anim`     | 加载动画 |
 | `.table`  `.table-strip`     | 表格样式 |
 | `.mt5` `.mt10` `.mt15` `.mt20` `.mt25` `.mt30` `.mr5` `.mr10` `.mr15` `.mr20` `.mr25` `.mr30`  `.mb5` `.mb10` `.mb15` `.mb20` `.mb25` `.mb30` `.ml5` `.ml10` `.ml15` `.ml20` `.ml25` `.ml30` `.pt5` `.pt10` `.pt15` `.pt20` `.pt25` `.pt30` `.pr5` `.pr10` `.pr15` `.pr20` `.pr25` `.pr30` `.pb5` `.pb10` `.pb15` `.pb20` `.pb25` `.pb30` `.pl5` `.pl10` `.pl15` `.pl20` `.pl25` `.pl30` `.tl` `.tc` `.tr`  `.fl` `.fr` `.ib` `.cp` `.cm` `.none` `.clearfix` `.unselectable` `.scrollable` `.ellipsis` | 通用样式，mt5表示margin-top:5px;其它类推。mr5表示margin-right:5px;其它类推。mb5表示margin-bottom:5px;其它类推。ml5表示margin-left:5px;其它类推。 pt5表示padding-top:5px;其它类推。pr5表示padding-right:5px;其它类推。pb5表示padding-bottom:5px;其它类推。pl5表示padding-left:5px;其它类推。tl表示text-align:left fl表示float:left ib表示display:inline-block  cp表示cursor:pointer  cm表示cursor:move pa表示position:absolite; pr表示position:relative  none表示display:none |

@@ -31,8 +31,15 @@ module.exports = Magix.View.extend({
             i = 0;
         }
         me.$tl = i;
-        me.$start = +extra.start || 0;
-        me.$end = +extra.end || 0;
+        let value = extra.value;
+        if (value) {
+            value = (value + '').split(',');
+            me.$start = +value[0] || 0;
+            me.$end = +value[1] || 0;
+        } else {
+            me.$start = 0;
+            me.$end = 0;
+        }
         let click = (e) => {
             if (me.$holdEvent || me.$disabled) return;
             let offset = me.$oNode.offset();
@@ -146,7 +153,7 @@ module.exports = Magix.View.extend({
         vars.tracker.width(right - vars.left);
         return v;
     },
-    val(v, ignoreSyncValue) {
+    val(v) {
         let me = this;
         if (v) {
             let av = (v + '').split(',');
@@ -157,13 +164,10 @@ module.exports = Magix.View.extend({
             }
             start = me.syncLeft(start);
             end = me.syncRight(end);
-
-            if (!ignoreSyncValue) {
-                if (me.$start != start || me.$end != end) {
-                    me.$start = start;
-                    me.$end = end;
-                    me.trigger();
-                }
+            if (me.$start != start || me.$end != end) {
+                me.$start = start;
+                me.$end = end;
+                me.trigger();
             }
         }
         return [me.$start, me.$end];

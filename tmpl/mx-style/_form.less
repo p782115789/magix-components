@@ -49,8 +49,8 @@
     border-color:@color-border;
 }
 
-input[type="checkbox"],
-input[type="radio"]{
+.checkbox,
+.radio{
     width: @font-size;
     height: @font-size;
     line-height: @font-size;
@@ -59,29 +59,30 @@ input[type="radio"]{
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    vertical-align: text-bottom;
+    vertical-align: middle;
     border-radius: @border-radius;
     transition: background-color .25s;
     background-color: #fff;
     border: 1px solid @color-border;
+    margin-right: 8px;
 }
-input[type="radio"]{
+.radio{
     border-radius: 50%;
 }
-input[type="checkbox"]:checked,
-input[type="checkbox"]:indeterminate,
-input[type="radio"]:checked{
+.checkbox:checked,
+.checkbox:indeterminate,
+.radio:checked{
     background-color: @color-brand;
 }
-input[type="checkbox"]:checked:after{
+.checkbox:checked:after{
     content: '✓';
     color:#fff;
 }
-input[type="checkbox"]:indeterminate:after{
+.checkbox:indeterminate:after{
     content: '╍';
     color:#fff;
 }
-input[type="radio"]:checked:after{
+.radio:checked:after{
     content: '';
     display: block;
     height: floor((@font-size - 2) / 3);
@@ -99,7 +100,20 @@ input[type="radio"]:checked:after{
 .form-label{
     text-align: right;
     width:120px;
-    padding: 0;
+    vertical-align: top;
+    white-space: nowrap;
+    word-wrap: normal;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+.form-required:before{
+    display: inline-block;
+    margin-right: 4px;
+    content: "*";
+    font-family: SimSun;
+    line-height: 1;
+    color: #f04134;
 }
 .form-content{
     display: inline-block;

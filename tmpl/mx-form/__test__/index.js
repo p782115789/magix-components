@@ -9,19 +9,18 @@ module.exports = Magix.View.extend({
     render() {
         let me = this;
         me.updater.digest({
-            random: 1,
+            checkbox: [],
+            range: 0,
+            range1: [230, 300],
             list: [111111111111111, 222222222222222, 333333333333, 44444444444444]
-        });
-    },
-    'refresh<click>' () {
-        this.updater.digest({
-            random: Math.random()
         });
     },
     'isValid<click>' () {
         console.log(this.isValid());
     },
-    'test<focusout>' (e) {
-        console.log(e);
+    'getData<click>' () {
+        let src = this.updater.get();
+        let data = this.fromKeys(src, 'name,day,time,tags,checkbox,radio,dateStart,dateEnd,range,range1,mark');
+        console.log(data);
     }
 });

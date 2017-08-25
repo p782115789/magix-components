@@ -34,6 +34,13 @@ let Rules = {
         }
         return true;
     },
+    maxLength(val, rule) {
+        val = $.trim(val);
+        if (val && val.length > rule) {
+            return false;
+        }
+        return true;
+    },
     range(val, rule) {
         val = parseFloat(val);
         if (isNaN(val)) {
@@ -91,6 +98,9 @@ let Msgs = {
     pattern() {
         return '格式有误';
     },
+    maxLength(rule) {
+        return '最大长度：' + rule;
+    },
     max(rule) {
         return '不能大于 ' + rule;
     },
@@ -135,7 +145,7 @@ let showError = (beId, key, rule) => {
         if (pos == 'static') {
             prt.addClass('@scoped.style:pr');
         }
-        node.before('<div class="@index.less:msg" id="' + msgId + '"/>');
+        node.after('<div class="@index.less:msg" id="' + msgId + '"/>');
         msgNode = $('#' + msgId);
     }
     msgNode.html(Msgs[key](rule)).show();
@@ -240,17 +250,22 @@ module.exports = {
                                 if (actions.number) {
                                     value = parseFloat(value);
                                 }
-                                src.push(value);
+                                idx = src.indexOf(value);
+                                if (idx === -1) {
+                                    src.push(value);
+                                }
                             });
                         } else {
                             value = node.val();
                             if (actions.number) {
                                 value = parseFloat(value);
                             }
+                            let idx = src.indexOf(value);
                             if (checked) {
-                                src.push(value);
+                                if (idx === -1) {
+                                    src.push(value);
+                                }
                             } else {
-                                let idx = src.indexOf(value);
                                 if (idx > -1) {
                                     src.splice(idx, 1);
                                 }
