@@ -12,13 +12,24 @@
             <div class="form-content"><input mx-view="mx-color/picker" class="input" /></div>
         </div>
 
+
+        <div class="form-item">
+            <label class="form-label form-required">标签：</label>
+            <div class="form-content">
+                <div mx-view="mx-taginput/index"
+                    view-list="<%@list%>"
+                    view-placeholder="请选择标签"
+                    view-selected="<%:tags{required:true}%>"
+                ></div>
+            </div>
+        </div>
+
         <div class="form-item">
             <label class="form-label form-required">活动时间：</label>
             <div class="form-content">
                 <div mx-view="mx-dropdown/index"
                     view-searchbox="true"
                     view-empty-text="请选择日期"
-                    mx-change="showWeek()"
                     view-selected="<%:day{required:true}%>" style="width:180px;">
                     <item value="mon">周一</item>
                     <item value="wed">周三</item>
@@ -29,17 +40,6 @@
                 <span class="ib ml5 mr5">
                 -</span>
                 <input class="input" style="width:145px" placeholder="请选择时间" value="<%:time{required:true}%>" mx-view="mx-time/picker" />
-            </div>
-        </div>
-
-        <div class="form-item">
-            <label class="form-label form-required">标签：</label>
-            <div class="form-content">
-                <div mx-view="mx-taginput/index"
-                    view-list="<%@list%>"
-                    view-placeholder="请选择标签"
-                    view-selected="<%:tags{required:true}%>"
-                ></div>
             </div>
         </div>
         <div class="form-item">
@@ -87,9 +87,9 @@
             <div class="form-content">
                 <div mx-view="mx-slider/index"
                     view-max="200"
-                    view-min="0"
+                    view-min="20"
                     view-value="<%:range%>"
-                    view-step="5"
+                    view-step="0.2"
                 ></div>
             </div>
         </div>
@@ -148,7 +148,6 @@
         &lt;div mx-view="app/gallery/mx-dropdown/index"
             view-searchbox="true"
             view-empty-text="请选择日期"
-            mx-change="showWeek()"
             view-selected="&lt;%:day{required:true}%&gt;" style="width:180px;"&gt;
             &lt;item value="mon"&gt;周一&lt;/item&gt;
             &lt;item value="wed"&gt;周三&lt;/item&gt;
@@ -219,7 +218,7 @@
             view-max="200"
             view-min="0"
             view-value="&lt;%:range%&gt;"
-            view-step="5"
+            view-step="0.2"
         &gt;&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;

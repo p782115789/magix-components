@@ -9,6 +9,18 @@ module.exports = Magix.View.extend({
     render() {
         let me = this;
         me.updater.digest({
+            keys:['aa','bb','cc'],
+            user: [{
+                name: 'a'
+            }, {
+                name: 'b'
+            }, {
+                name: 'c'
+            }, {
+                name: 'd'
+            }, {
+                name: 'e'
+            }],
             checkbox: [],
             range: 0,
             range1: [230, 300],
@@ -22,5 +34,15 @@ module.exports = Magix.View.extend({
         let src = this.updater.get();
         let data = this.fromKeys(src, 'name,day,time,tags,checkbox,radio,dateStart,dateEnd,range,range1,mark');
         console.log(data);
+    },
+    'abc<focusin>'(e){
+        console.log(e);
+    },
+    'delete<click>' (e) {
+        let user = this.updater.get('user');
+        user.splice(e.params.key, 1);
+        this.updater.digest({
+            user
+        });
     }
 });

@@ -95,8 +95,8 @@
 | 参数名称 | 参数类型 | 说明 |
 | -------- | -------- |
 | value | array | value |
-| start | string | 开始滑块的值 |
-| end | string | 结束滑块的值 |
+| start | number | 开始滑块的值 |
+| end | number | 结束滑块的值 |
 
 
 

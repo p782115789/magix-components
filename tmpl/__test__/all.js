@@ -22,13 +22,18 @@ module.exports = Magix.View.extend({
         let loc = Magix.Router.parse();
         let view = loc.path;
         view = view.slice(1);
-        let i = view.indexOf('/');
-        view = view.slice(0, i) + '/__test__' + view.slice(i);
+        if (view == 'list') {
+            view = '__test__/list';
+        } else {
+            let i = view.indexOf('/');
+            view = view.slice(0, i) + '/__test__' + view.slice(i);
+        }
         me.updater.digest({
             view: view
         });
     }
 });
+'@./list.js';
 '@../mx-calendar/__test__/index.js';
 '@../mx-calendar/__test__/datepicker.js';
 '@../mx-calendar/__test__/rangepicker.js';

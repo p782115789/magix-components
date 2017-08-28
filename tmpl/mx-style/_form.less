@@ -12,8 +12,6 @@
 .input,.textarea{
     display: inline-block;
     height: @input-height;
-    vertical-align: middle;
-    font-size: @font-size;
     padding: 6px 9px;
     border-radius: @border-radius;
     box-sizing: border-box;
@@ -53,7 +51,6 @@
 .radio{
     width: @font-size;
     height: @font-size;
-    line-height: @font-size;
     text-align: center;
     font-size: @font-size - 4;
     -webkit-appearance: none;
@@ -98,6 +95,8 @@
     margin-bottom: 22px;
 }
 .form-label{
+    height: @input-height;
+    line-height: @input-height;
     text-align: right;
     width:120px;
     vertical-align: top;
@@ -118,6 +117,8 @@
 .form-content{
     display: inline-block;
     position: relative;
+    min-height: @input-height;
+    line-height: @input-height;
 }
 .form-footer{
     margin-left: 120px;

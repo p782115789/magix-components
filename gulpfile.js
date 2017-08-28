@@ -7,7 +7,7 @@ let fs = require('fs');
 combineTool.config({
     debug: true,
     addTmplViewsToDependencies: true,
-    //multiBind:true,
+    //multiBind: true,
     scopedCss: [
         './tmpl/mx-style/index.less'
     ]
@@ -23,6 +23,10 @@ gulp.task('combine', ['cleanSrc'], () => {
     }).catch(ex => {
         console.log('gulpfile:', ex);
     });
+});
+
+gulp.task('one', ['cleanSrc'], () => {
+    combineTool.processFile('./tmpl/mx-form/__test__/index.js');
 });
 
 gulp.task('watch', ['combine'], () => {

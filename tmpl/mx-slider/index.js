@@ -99,22 +99,27 @@ module.exports = Magix.View.extend({
                 me.$value = v;
             }
         }
-        return me.$value;
+        return +me.$value;
     },
     getVal(p) {
         let me = this;
         let max = me.$max,
             min = me.$min,
-            step = me.$step;
-        let v = min + (max - min) * p;
-        v = Math.round(v / step) * step;
+            step = me.$step,
+            v;
+        if (p === 0) v = min;
+        else if (p === 1) v = max;
+        else {
+            v = min + (max - min) * p;
+            v = Math.round(v / step) * step;
+        }
         v = v.toFixed(me.$tl);
         return v;
     },
     trigger(p) {
-        this.$oNode.val(p).trigger({
+        this.$oNode.prop('value', +p).trigger({
             type: 'change',
-            value: p
+            value: +p
         });
     },
     'drag<mousedown>' (e) {

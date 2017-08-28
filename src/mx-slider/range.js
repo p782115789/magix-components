@@ -12,7 +12,7 @@ define('mx-slider/range',["magix","$","../mx-dragdrop/index"],function(require,e
 let Magix = require('magix');
 let $ = require('$');
 let DD = require('../mx-dragdrop/index');
-Magix.applyStyle("mx3e3-_mx-slider_index_",".mx3e3-_mx-slider_index_-as-input {\n  height: 32px;\n  cursor: default;\n}\n.mx3e3-_mx-slider_index_-rail {\n  height: 4px;\n  background: #eaeaea;\n  position: relative;\n  display: inline-block;\n  border-radius: 2px;\n}\n.mx3e3-_mx-slider_index_-tracker {\n  height: 4px;\n  background: #6363e6;\n  position: absolute;\n  left: 0;\n  top: 0;\n  border-radius: 2px;\n}\n.mx3e3-_mx-slider_index_-indicator {\n  border-radius: 50%;\n  width: 12px;\n  height: 12px;\n  position: absolute;\n  top: -4px;\n  background: #fff;\n  border: solid 2px #6363e6;\n}\n.mx3e3-_mx-slider_index_-pointer-label,\n.mx3e3-_mx-slider_index_-scale-left,\n.mx3e3-_mx-slider_index_-scale-right {\n  position: absolute;\n  font-size: 9px;\n  pointer-events: none;\n}\n.mx3e3-_mx-slider_index_-pointer-label {\n  top: -15px;\n  left: 2px;\n}\n.mx3e3-_mx-slider_index_-scale-left {\n  left: 0;\n  top: 6px;\n}\n.mx3e3-_mx-slider_index_-scale-right {\n  right: 0;\n  top: 6px;\n}\n.mx3e3-_mx-slider_index_-notallowed {\n  cursor: not-allowed;\n}\n.mx3e3-_mx-slider_index_-notallowed .mx3e3-_mx-slider_index_-rail {\n  background-color: #fbfbfb;\n}\n.mx3e3-_mx-slider_index_-notallowed .mx3e3-_mx-slider_index_-tracker {\n  background-color: #eaeaea;\n}\n.mx3e3-_mx-slider_index_-notallowed .mx3e3-_mx-slider_index_-indicator {\n  border-color: #eaeaea;\n}\n");
+Magix.applyStyle("mx3e3-_mx-slider_index_",".mx3e3-_mx-slider_index_-as-input {\n  height: 32px;\n  cursor: default;\n  line-height: normal;\n}\n.mx3e3-_mx-slider_index_-rail {\n  height: 4px;\n  background: #eaeaea;\n  position: relative;\n  display: inline-block;\n  border-radius: 2px;\n}\n.mx3e3-_mx-slider_index_-tracker {\n  height: 4px;\n  background: #6363e6;\n  position: absolute;\n  left: 0;\n  top: 0;\n  border-radius: 2px;\n}\n.mx3e3-_mx-slider_index_-indicator {\n  border-radius: 50%;\n  width: 12px;\n  height: 12px;\n  position: absolute;\n  top: -4px;\n  background: #fff;\n  border: solid 2px #6363e6;\n}\n.mx3e3-_mx-slider_index_-pointer-label,\n.mx3e3-_mx-slider_index_-scale-left,\n.mx3e3-_mx-slider_index_-scale-right {\n  position: absolute;\n  font-size: 9px;\n  pointer-events: none;\n}\n.mx3e3-_mx-slider_index_-pointer-label {\n  top: -15px;\n  left: 2px;\n}\n.mx3e3-_mx-slider_index_-scale-left {\n  left: 0;\n  top: 10px;\n}\n.mx3e3-_mx-slider_index_-scale-right {\n  right: 0;\n  top: 10px;\n}\n.mx3e3-_mx-slider_index_-notallowed {\n  cursor: not-allowed;\n}\n.mx3e3-_mx-slider_index_-notallowed .mx3e3-_mx-slider_index_-rail {\n  background-color: #fbfbfb;\n}\n.mx3e3-_mx-slider_index_-notallowed .mx3e3-_mx-slider_index_-tracker {\n  background-color: #eaeaea;\n}\n.mx3e3-_mx-slider_index_-notallowed .mx3e3-_mx-slider_index_-indicator {\n  border-color: #eaeaea;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: {"html":"<div class=\"mx3e3-_mx-slider_index_-rail\"><div class=\"mx3e3-_mx-slider_index_-tracker\"></div><div mx-guid=\"g0\u001f\" class=\"mx3e3-_mx-slider_index_-indicator\" mx-mousedown=\"\u001f\u001edrag({start:true})\" id=\"left_<%=$$.viewId%>\"><div class=\"mx3e3-_mx-slider_index_-pointer-label\">0</div></div><div mx-guid=\"g1\u001f\" class=\"mx3e3-_mx-slider_index_-indicator\" mx-mousedown=\"\u001f\u001edrag({end:true})\" id=\"right_<%=$$.viewId%>\"><div class=\"mx3e3-_mx-slider_index_-pointer-label\">0</div></div><div mx-guid=\"g2\u001f\" class=\"mx3e3-_mx-slider_index_-scale-left\">3\u001d</div><div mx-guid=\"g3\u001f\" class=\"mx3e3-_mx-slider_index_-scale-right\">4\u001d</div></div>","subs":[{"keys":["viewId"],"path":"div[mx-guid=\"g0\u001f\"]","attr":"id=\"left_<%=$$.viewId%>\"","attrs":[{"n":"id","p":1}]},{"keys":["viewId"],"path":"div[mx-guid=\"g1\u001f\"]","attr":"id=\"right_<%=$$.viewId%>\"","attrs":[{"n":"id","p":1}]},{"keys":["min"],"path":"div[mx-guid=\"g2\u001f\"]","tmpl":"<%=$$.min%>","s":"3\u001d"},{"keys":["max"],"path":"div[mx-guid=\"g3\u001f\"]","tmpl":"<%=$$.max%>","s":"4\u001d"}],"file":"mx-slider/range.html"},
     init(extra) {
@@ -170,26 +170,31 @@ module.exports = Magix.View.extend({
                 me.trigger();
             }
         }
-        return [me.$start, me.$end];
+        return [+me.$start, +me.$end];
     },
     getVal(p) {
         let me = this;
         let max = me.$max,
             min = me.$min,
-            step = me.$step;
-        let v = min + (max - min) * p;
-        v = Math.round(v / step) * step;
+            step = me.$step,
+            v;
+        if (p === 0) v = min;
+        else if (p === 1) v = max;
+        else {
+            v = min + (max - min) * p;
+            v = Math.round(v / step) * step;
+        }
         v = v.toFixed(me.$tl);
         return v;
     },
     trigger() {
         let me = this;
-        let value = [me.$start, me.$end];
-        this.$oNode.val(value).trigger({
+        let value = [+me.$start, +me.$end];
+        this.$oNode.prop('value', value).trigger({
             type: 'change',
             value: value,
-            start: me.$start,
-            end: me.$end
+            start: +me.$start,
+            end: +me.$end
         });
     },
     'drag<mousedown>' (e) {

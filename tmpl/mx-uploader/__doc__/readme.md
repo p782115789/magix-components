@@ -49,6 +49,13 @@ module.exports = Magix.View.extend({
 
 
 #### event
+#### start 开始上传前触发
+
+| 参数名称 | 参数类型 | 说明 |
+| -------- | -------- |
+| files | array | 上传的文件 |
+
+
 #### success 上传成功时触发
 
 | 参数名称 | 参数类型 | 说明 |
