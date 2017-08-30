@@ -1,55 +1,50 @@
-<div class="clearfix">
+<div class="clearfix statistics">
     <%if(!simplify&&!mini){%>
-    <div class="statistics">
-        <span class="vbtm">
-            当前第 <b><%for(let i=startSpace;i--;){%>&nbsp;&nbsp;<%}%><%= offsetStart %> - <%= offsetEnd %><%for(let i=endSpace;i--;){%>&nbsp;&nbsp;<%}%></b> 条，共 <b><%= total %></b> 条，每页展现
-        </span>
-        <div class="ml10 mr10" style="width:80px; top: 5px;"
-            mx-view="@../mx-dropdown/index"
-            view-list="<%@[10,20,30,40,50,100]%>"
-            view-selected="<%@size%>" mx-change="changeSize()"
-        ></div>
-        <span class="vbtm">条</span>
-    </div>
+    <span>
+        当前第 <b><%for(let i=startSpace;i--;){%>&nbsp;&nbsp;<%}%><%= offsetStart %> - <%= offsetEnd %><%for(let i=endSpace;i--;){%>&nbsp;&nbsp;<%}%></b> 条，共 <b><%= total %></b> 条，每页展现
+    </span>
+    <div class="ml10 mr10" style="width:70px;"
+        mx-view="@../mx-dropdown/index"
+        view-list="<%@[10,20,30,40,50,100]%>"
+        view-selected="<%@size%>" mx-change="changeSize()"
+    ></div>
+    <span>条</span>
     <%}%>
-    <div class="pager">
-        <ul>
-            <li class="num<%if(page==1){%> notallowed<%}%>">
-                <a class="num-item" href="#"<%if(page>1){%> mx-click="toPrev()"<%}else{%> mx-click="prevent()"<%}%>>
-                    <span class="iconfont icon">&#xe61e;</span>
-                </a>
-            </li>
-            <%if(mini){%>
-            <li class="num"><%for(let i=pageSpace;i--;){%>&nbsp;&nbsp;<%}%><%=page%> / <%=pages%>
-            </li>
-            <%}else{%>
-            <%if(start>1){%>
-            <li class="num">
-                <a class="num-item" href="#" mx-click="toPage({page:1})">1</a>
-            </li>
-            <%}%>
-            <%if(start>2){%>
-            <li class="notallowed num"><a class="num-item" href="#" mx-click="prevent()">...</a></li>
-            <%}%>
-            <%for(var i=start;i<=end;i++){%>
-            <li class="num<%if(i==page){%> active<%}%>">
-                <a class="num-item" href="#" mx-click="toPage({page:<%=i%>})"><%=i%></a>
-            </li>
-            <%}%>
-            <%if(end+2<=pages){%>
-            <li class="num notallowed">
-                <a class="num-item" href="#" mx-click="prevent()">...</a>
-            </li>
-            <%}%>
-            <%if(end<pages){%>
-            <li class="num">
-                <a class="num-item" href="#" mx-click="toPage({page:<%=pages%>})"><%=pages%></a>
-            </li>
-            <%}%>
-            <%}%>
-            <li class="num<%if(page==pages){%> notallowed<%}%>">
-                <a class="num-item" href="#"<%if(page<pages){%> mx-click="toNext()"<%}else{%> mx-click="prevent()"<%}%>><span class="iconfont icon">&#xe61b;</span></a>
-            </li>
-        </ul>
-    </div>
+    <ul class="clearfix ib">
+        <li class="ib<%if(page==1){%> notallowed<%}%>">
+            <a class="num-item iconfont icon" href="#"<%if(page>1){%> mx-click="toPrev()"<%}else{%> mx-click="prevent()"<%}%>>&#xe61e;
+            </a>
+        </li>
+        <%if(mini){%>
+        <li class="ib"><%for(let i=pageSpace;i--;){%>&nbsp;&nbsp;<%}%><%=page%> / <%=pages%>
+        </li>
+        <%}else{%>
+        <%if(start>1){%>
+        <li class="ib">
+            <a class="num-item" href="#" mx-click="toPage({page:1})">1</a>
+        </li>
+        <%}%>
+        <%if(start>2){%>
+        <li class="notallowed ib"><a class="num-item" href="#" mx-click="prevent()">...</a></li>
+        <%}%>
+        <%for(var i=start;i<=end;i++){%>
+        <li class="ib<%if(i==page){%> active<%}%>">
+            <a class="num-item" href="#" mx-click="toPage({page:<%=i%>})"><%=i%></a>
+        </li>
+        <%}%>
+        <%if(end+2<=pages){%>
+        <li class="ib notallowed">
+            <a class="num-item" href="#" mx-click="prevent()">...</a>
+        </li>
+        <%}%>
+        <%if(end<pages){%>
+        <li class="ib">
+            <a class="num-item" href="#" mx-click="toPage({page:<%=pages%>})"><%=pages%></a>
+        </li>
+        <%}%>
+        <%}%>
+        <li class="ib<%if(page==pages){%> notallowed<%}%>">
+            <a class="num-item iconfont icon rotate180" href="#"<%if(page<pages){%> mx-click="toNext()"<%}else{%> mx-click="prevent()"<%}%>>&#xe61e;</a>
+        </li>
+    </ul>
 </div>

@@ -5,7 +5,7 @@ let $ = require('$');
 let ICounter = 0;
 let Instances = [];
 let Watcher = (e) => {
-    for (let i = Instances.length - 1; i >= 0; i--) {
+    for (let i = Instances.length; i--;) {
         let info = Instances[i];
         if (info.removed) {
             Instances.splice(i, 1);
@@ -17,14 +17,14 @@ let Watcher = (e) => {
         }
     }
 };
-let Remove = (view) => {
+let Remove = view => {
     let info = Instances[view.id];
     if (info) {
         info.removed = true;
     }
     delete Instances[view.id];
 };
-let Add = (view) => {
+let Add = view => {
     Remove(view);
     let info = {
         view: view

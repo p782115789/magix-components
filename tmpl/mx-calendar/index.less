@@ -1,4 +1,6 @@
 @import "../mx-style/_vars";
+@cwidth:(2 * @font-size + 7) * 7;
+@cheight:(6 * (2 * @font-size + 6))+ 20 + 62;
 
 .wrapper{
     background-color: #fff;
@@ -16,8 +18,8 @@
     color: #777;
 }
 .header{
-    height: @input-height;
-    line-height: @input-height;
+    height: 32px;
+    line-height: 32px;
     padding: 1px;
 }
 .minus,
@@ -44,7 +46,7 @@
     background-color: #EEE;
 }
 .body{
-    width: 245px;
+    width: @cwidth;
 }
 .weeks{
     color: @color-primary;
@@ -68,22 +70,24 @@
     top:0;
 }
 .ym{
-    height: 60px;
-    margin:2px;
-    display: inline-block;
-    width:76px;
+    height: floor((@cheight - 32 - 4 * 4) / 4);
+    margin: 2px;
+    float: left;
+    width: floor((@cwidth - 2 * 6) / 3);
     cursor: pointer;
-    line-height: 60px;
+    line-height: floor((@cheight - 32 - 4 * 4) / 4);
     border-radius: @border-radius;
     font-size:@font-size + 2;
 }
-.ym:hover,.day:hover{
+.ym:hover,
+.day:hover{
     background: @color-hover;
 }
-.week,.day{
-    width:28px;
-    height: 28px;
-    line-height: 28px;
+.week,
+.day{
+    width:2 * @font-size;
+    height: 2 * @font-size;
+    line-height: 2 * @font-size;
     margin: 3px 2px;
     float: left;
     border-radius: 4px;
@@ -112,5 +116,5 @@
 }
 
 .rotate180{
-    transform:rotate(180deg);
+    transform:scaleX(-1);
 }

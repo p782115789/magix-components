@@ -37,7 +37,7 @@
             <h4 mx-click="showYears()" class="title"><%=year%></h4>
             <span class="iconfont plus fr rotate180" mx-click="changeYear({next:true})">&#xe61e;</span>
         </div>
-        <div class="body">
+        <div class="body clearfix">
             <%for(var i=0,m;i<months.length;i++){%>
             <%m=months[i]%>
             <span class="ym<%if(m.disabled){%> notallowed<%}%><%if(m.selected){%> selected<%}%>"<%if(!m.disabled){%> mx-click="pickMonth({month:'<%=m.month%>'})"<%}%>><%=m.month%></span>
@@ -51,7 +51,7 @@
             <h4 class="title"><%=startYear%>-<%=endYear%></h4>
             <span class="iconfont plus fr rotate180" mx-click="changeYear({range:true,next:true})">&#xe61e;</span>
         </div>
-        <div class="body">
+        <div class="body clearfix">
             <%for(var i=0,y;i<years.length;i++){%>
                 <%y=years[i]%>
                 <span class="ym<%if(y.selected){%> selected<%}%><%if(y.disabled){%> notallowed<%}%><%if(!i||i==years.length-1){%> gray<%}%>"<%if(!y.disabled){%> mx-click="pickYear({year:'<%=y.year%>'})"<%}%>>

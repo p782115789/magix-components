@@ -1,35 +1,21 @@
 @import "../mx-style/_vars";
-.vbtm{
-    vertical-align: text-bottom;
-}
-.statistics,
-.pager{
-    position: relative;
-}
+
 .statistics{
     color: @color-third;
     float: left;
 }
-.pager{
-    text-align: right;
-    float: right;
-    padding-top: 5px;
-}
 .icon{
     font-size: @font-size - 2;
-}
-.num{
-    display: inline-block;
+    top:-1px;
 }
 .num-item{
     margin: 0 3px;
     text-decoration: none;
-    z-index: 3;
-    border-radius: 4px;
+    border-radius: @border-radius;
     text-align: center;
-    width: 28px;
-    height: 28px;
-    line-height: 28px;
+    width: @font-size * 2;
+    height: @font-size * 2;
+    line-height: @font-size * 2;
     display: block;
 }
 .active .num-item{
@@ -41,4 +27,7 @@
     color:@color-third;
     background: transparent;
     cursor: not-allowed;
+}
+.rotate180{
+    transform:scaleX(-1);
 }

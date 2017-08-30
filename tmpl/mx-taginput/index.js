@@ -1,4 +1,3 @@
-'top@./suggest.js';
 /*
     author:xinglie.lkf@alibaba-inc.com
  */

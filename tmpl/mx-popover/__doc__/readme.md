@@ -15,7 +15,7 @@
 | -------- | -------- | -------- | -------- |
 | content    | 提示内容 | string |  |
 | width     | 提示框宽度 | number | 276  |
-| placement | 提示框在目标的方位，仅top与bottom | string | bottom |
-| align | 提示框与目标的对齐方式，仅left与right | string | left |
+| placement | 提示框在目标的方位，top,bottom,left,right | string | bottom |
+| align | 提示框与目标的对齐方式，top,bottom,left,right | string | &nbsp; |
 
 

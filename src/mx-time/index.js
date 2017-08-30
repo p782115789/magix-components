@@ -11,7 +11,7 @@ define('mx-time/index',["magix","$"],function(require,exports,module){
  */
 let Magix = require('magix');
 let $ = require('$');
-Magix.applyStyle("mx3e3-_mx-time_index_",".mx3e3-_mx-time_index_-group {\n  width: 58px;\n  float: left;\n}\n.mx3e3-_mx-time_index_-ipt {\n  font-size: 30px;\n  height: 50px;\n  text-align: center;\n  margin-bottom: 10px;\n}\n.mx3e3-_mx-time_index_-o-btn {\n  width: 28px;\n  padding: 6px;\n}\n.mx3e3-_mx-time_index_-spliter {\n  font-size: 27px;\n  float: left;\n  font-weight: bolder;\n  display: inline-block;\n  width: 30px;\n  text-align: center;\n}\n");
+Magix.applyStyle("mx3e3-_mx-time_index_",".mx3e3-_mx-time_index_-group {\n  width: 63px;\n  float: left;\n}\n.mx3e3-_mx-time_index_-ipt {\n  font-size: 30px;\n  height: 50px;\n  text-align: center;\n  margin-bottom: 10px;\n}\n.mx3e3-_mx-time_index_-o-btn {\n  width: 28px;\n  height: 28px;\n  padding: 0;\n}\n.mx3e3-_mx-time_index_-spliter {\n  font-size: 27px;\n  float: left;\n  line-height: 32px;\n  margin-top: 8px;\n  font-weight: bolder;\n  display: inline-block;\n  width: 30px;\n  text-align: center;\n}\n");
 let parseTime = time => {
     if (!time) {
         let d = new Date();
