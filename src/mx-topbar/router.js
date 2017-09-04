@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.5.4: https://github.com/thx/magix-combine
+    generate by magix-combine@3.5.6: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd
  */
@@ -7,11 +7,14 @@ define('mx-topbar/router',["magix","$"],function(require,exports,module){
 /*Magix,$*/
 
 /*
+ver:1.0.0
+*/
+/*
     author:xinglie.lkf@alibaba-inc.com
  */
 let Magix = require('magix');
 let $ = require('$');
-Magix.applyStyle("mx3e3-_mx-topbar_index_",".mx3e3-_mx-topbar_index_-bar {\n  position: fixed;\n  z-index: 400;\n  height: 2px;\n  left: 0;\n  top: 0;\n  right: 0;\n  background-color: #d45414;\n  transform: translate3d(-100%, 0px, 0px);\n  transition: all 300ms ease;\n}\n");
+Magix.applyStyle("mx3e3_mx-topbar_index_",".mx3e3_mx-topbar_index_-bar {\n  position: fixed;\n  z-index: 400;\n  height: 2px;\n  left: 0;\n  top: 0;\n  right: 0;\n  background-color: #d45414;\n  transform: translate3d(-100%, 0px, 0px);\n  transition: all 300ms ease;\n}\n");
 let barId = Magix.guid('mx_topbar_');
 let Vframe = Magix.Vframe;
 let timer, interval;
@@ -21,7 +24,7 @@ let Topbar = {
         clearTimeout(timer);
         let bar = $('#' + barId);
         if (!bar.length) {
-            $('body').append(`<div class="mx3e3-_mx-topbar_index_-bar" id="${barId}"></div>`);
+            $('body').append(`<div class="mx3e3_mx-topbar_index_-bar" id="${barId}"></div>`);
             interval = setInterval(Topbar.porgress, 300);
         }
     },

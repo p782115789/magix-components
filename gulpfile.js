@@ -3,11 +3,12 @@ let combineTool = require('../magix-combine/index');
 let watch = require('gulp-watch');
 let del = require('del');
 let fs = require('fs');
+let pkg = require('./package.json');
 
 combineTool.config({
     debug: true,
     addTmplViewsToDependencies: true,
-    //multiBind: true,
+    multiBind: true,
     scopedCss: [
         './tmpl/mx-style/index.less'
     ]
@@ -41,7 +42,18 @@ gulp.task('watch', ['combine'], () => {
     });
 });
 
-gulp.task('release', ['combine'], () => {
+gulp.task('ver', () => {
+    combineTool.walk('./tmpl', file => {
+        if (/\.js$/.test(file)) {
+            let c = combineTool.readFile(file);
+            c = c.replace(/\/\*\s+ver:\d+\.\d+\.\d+\s+\*\/\s*/g, '');
+            c = `/*\r\nver:${pkg.version}\r\n*/\r\n${c}`;
+            combineTool.writeFile(file, c);
+        }
+    });
+});
+
+gulp.task('release', ['combine', 'ver'], () => {
     let cs = fs.readFileSync('./src/__test__/all.js').toString();
     let index = fs.readFileSync('./index.html').toString();
     cs = cs.replace(/\$/g, '$$$$');

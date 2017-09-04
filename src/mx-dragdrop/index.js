@@ -1,11 +1,14 @@
 /*
-    generate by magix-combine@3.5.4: https://github.com/thx/magix-combine
+    generate by magix-combine@3.5.6: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd
  */
 define('mx-dragdrop/index',["$"],function(require,exports,module){
 /*$*/
 
+/*
+ver:1.0.0
+*/
 /*
     author:xinglie.lkf@taobao.com
  */

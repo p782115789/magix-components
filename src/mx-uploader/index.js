@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.5.4: https://github.com/thx/magix-combine
+    generate by magix-combine@3.5.6: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd
  */
@@ -7,11 +7,14 @@ define('mx-uploader/index',["magix","$"],function(require,exports,module){
 /*Magix,$*/
 
 /*
+ver:1.0.0
+*/
+/*
     author:xinglie.lkf@taobao.com
  */
 let Magix = require('magix');
 let $ = require('$');
-Magix.applyStyle("mx3e3-_mx-uploader_index_",".mx3e3-_mx-uploader_index_-pro{\n    position: relative;\n    overflow: hidden;\n}\n.mx3e3-_mx-uploader_index_-file{\n    position: absolute;\n    left:0;\n    top:0;\n    bottom: 0;\n    right: 0;\n    width: 100%;\n    height: 100%;\n    opacity: 0;\n    cursor: pointer;\n    font-size:100px;\n    filter: alpha(opacity=0);\n}\n.mx3e3-_mx-uploader_index_-cnt{\n    position: absolute;\n    left:-999999px;\n}");
+Magix.applyStyle("mx3e3_mx-uploader_index_",".mx3e3_mx-uploader_index_-pro{\n    position: relative;\n    overflow: hidden;\n}\n.mx3e3_mx-uploader_index_-file{\n    position: absolute;\n    left:0;\n    top:0;\n    bottom: 0;\n    right: 0;\n    width: 100%;\n    height: 100%;\n    opacity: 0;\n    cursor: pointer;\n    font-size:100px;\n    filter: alpha(opacity=0);\n}\n.mx3e3_mx-uploader_index_-cnt{\n    position: absolute;\n    left:-999999px;\n}");
 let Uploader = Magix.Base.extend({
     destroy() {
         let me = this;
@@ -24,7 +27,7 @@ let Iframe = Uploader.extend({
         let me = this;
         let id = Magix.guid('up');
         if (!form) {
-            $('body').append('<div id="' + id + '_temp" class="mx3e3-_mx-uploader_index_-cnt"><form target="' + id + '"></form></div>');
+            $('body').append('<div id="' + id + '_temp" class="mx3e3_mx-uploader_index_-cnt"><form target="' + id + '"></form></div>');
             let cnt = $('#' + id + '_temp');
             form = cnt.find('form');
             form.append(input);
@@ -142,7 +145,7 @@ module.exports = Magix.View.extend({
             node.remove();
         }
         let data = me.updater.get();
-        $('#' + me.id).append(me.wrapEvent('<input id="' + nodeId + '" type="file" class="mx3e3-_mx-uploader_index_-file" mx-change="\u001f\u001eupload()" name="' + data.name + '" />')).addClass('mx3e3-_mx-uploader_index_-pro');
+        $('#' + me.id).append(me.wrapEvent('<input id="' + nodeId + '" type="file" class="mx3e3_mx-uploader_index_-file" mx-change="\u001f\u001eupload()" name="' + data.name + '" />')).addClass('mx3e3_mx-uploader_index_-pro');
         node = $('#' + nodeId);
         if (data.multiple) node.attr('multiple', 'multiple');
         if (data.accept) node.prop('accept', data.accept);

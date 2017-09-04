@@ -1,11 +1,14 @@
 /*
-    generate by magix-combine@3.5.4: https://github.com/thx/magix-combine
+    generate by magix-combine@3.5.6: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd
  */
 define('mx-gtip/index',["magix","$"],function(require,exports,module){
 /*Magix,$*/
 
+/*
+ver:1.0.0
+*/
 /*
     author:xinglie.lkf@alibaba-inc.com
  */
@@ -42,7 +45,7 @@ let Docks = {
         });
     }
 };
-Magix.applyStyle("mx3e3-_mx-gtip_index_",".mx3e3-_mx-gtip_index_-gtip {\n  border: solid 1px #e6e6e6;\n  background-color: #fff;\n  padding: 8px 20px;\n  position: fixed;\n  z-index: 450;\n  border-radius: 4px;\n  width: 300px;\n  height: 65px;\n  overflow: hidden;\n  word-break: break-all;\n  transition: all 0.3s;\n  opacity: 0;\n}\n.mx3e3-_mx-gtip_index_-fadein {\n  opacity: 1;\n}\n.mx3e3-_mx-gtip_index_-fadeout {\n  opacity: 0;\n}\n");
+Magix.applyStyle("mx3e3_mx-gtip_index_",".mx3e3_mx-gtip_index_-gtip {\n  border: solid 1px #e6e6e6;\n  background-color: #fff;\n  padding: 8px 20px;\n  position: fixed;\n  z-index: 450;\n  border-radius: 4px;\n  width: 300px;\n  height: 65px;\n  overflow: hidden;\n  word-break: break-all;\n  transition: all 0.3s;\n  opacity: 0;\n}\n.mx3e3_mx-gtip_index_-fadein {\n  opacity: 1;\n}\n.mx3e3_mx-gtip_index_-fadeout {\n  opacity: 0;\n}\n");
 let GTipManager = {
     calc(dock) {
         let me = this;
@@ -95,7 +98,7 @@ module.exports = Magix.View.extend({
     render() {
         let me = this;
         let oNode = $('#' + me.id);
-        oNode.addClass('mx3e3-_mx-gtip_index_-gtip');
+        oNode.addClass('mx3e3_mx-gtip_index_-gtip');
         me.$oNode = oNode;
         me.updater.digest({
             tip: me.$extra
@@ -106,11 +109,11 @@ module.exports = Magix.View.extend({
             }), me.$extra.timeout);
         }
         setTimeout(me.wrapAsync(() => {
-            oNode.addClass('mx3e3-_mx-gtip_index_-fadein');
+            oNode.addClass('mx3e3_mx-gtip_index_-fadein');
         }), 20);
     },
     close() {
-        this.$oNode.addClass('mx3e3-_mx-gtip_index_-fadeout');
+        this.$oNode.addClass('mx3e3_mx-gtip_index_-fadeout');
         setTimeout(this.wrapAsync(() => {
             this.owner.unmountVframe();
         }), 300);

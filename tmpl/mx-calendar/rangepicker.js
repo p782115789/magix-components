@@ -1,4 +1,6 @@
-'top@./range.js';
+/*
+ver:1.0.0
+*/
 /*
     author:xinglie.lkf@taobao.com
  */

@@ -1,4 +1,7 @@
 /*
+ver:1.0.0
+*/
+/*
     author:xinglie.lkf@taobao.com
  */
 let Magix = require('magix');
@@ -71,9 +74,10 @@ module.exports = Magix.View.extend({
     val(v, ignoreSyncValue) {
         let me = this;
         let nv = +v;
-        let max = me.$max,
-            min = me.$min;
         if (nv || nv === 0) {
+            me.$oNode.prop('value', nv);
+            let max = me.$max,
+                min = me.$min;
             if (nv > max) nv = max;
             else if (nv < min) nv = min;
             let p = (nv - min) / (max - min);

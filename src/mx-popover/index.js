@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.5.4: https://github.com/thx/magix-combine
+    generate by magix-combine@3.5.6: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd
  */
@@ -7,14 +7,17 @@ define('mx-popover/index',["magix","$"],function(require,exports,module){
 /*Magix,$*/
 
 /*
+ver:1.0.0
+*/
+/*
     author:xinglie.lkf@alibaba-inc.com
  */
 let Magix = require('magix');
 let $ = require('$');
-Magix.applyStyle("mx3e3-_mx-popover_index_",".mx3e3-_mx-popover_index_-popover {\n  border-radius: 4px;\n  padding: 0;\n  box-shadow: 0 6px 8px rgba(51, 51, 51, 0.08);\n  position: absolute;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  display: none;\n  max-width: 276px;\n  background-color: #fff;\n}\n.mx3e3-_mx-popover_index_-popover-content {\n  line-height: 22px;\n  padding: 9px 14px;\n}\n");
+Magix.applyStyle("mx3e3_mx-popover_index_",".mx3e3_mx-popover_index_-popover {\n  border-radius: 4px;\n  padding: 0;\n  box-shadow: 0 6px 8px rgba(51, 51, 51, 0.08);\n  position: absolute;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  display: none;\n  max-width: 276px;\n  background-color: #fff;\n}\n.mx3e3_mx-popover_index_-popover-content {\n  line-height: 22px;\n  padding: 9px 14px;\n}\n");
 let Active;
 module.exports = Magix.View.extend({
-    tmpl: {"html":"<div mx-guid=\"g0\u001f\" class=\"mx3e3-_mx-popover_index_-popover-content\">1\u001d</div>","subs":[{"keys":["content"],"path":"div[mx-guid=\"g0\u001f\"]","tmpl":"<%!$$.content%>","s":"1\u001d"}],"file":"mx-popover/index.html"},
+    tmpl: {"html":"<div mx-guid=\"g0\u001f\" class=\"mx3e3_mx-popover_index_-popover-content\">1\u001d</div>","subs":[{"keys":["content"],"path":"div[mx-guid=\"g0\u001f\"]","tmpl":"<%!$$.content%>","s":"1\u001d"}],"file":"mx-popover/index.html"},
     init(extra) {
         let me = this;
         me.$placement = extra.placement || 'right';
@@ -47,7 +50,7 @@ module.exports = Magix.View.extend({
         let me = this;
         if (!me.$rNode) {
             let id = 'popover_' + me.id;
-            me.$oNode.after('<div class="mx3e3-_mx-popover_index_-popover" id="' + id + '" />');
+            me.$oNode.after('<div class="mx3e3_mx-popover_index_-popover" id="' + id + '" />');
             me.updater.to(id);
             me.updater.digest({
                 content: me.$content

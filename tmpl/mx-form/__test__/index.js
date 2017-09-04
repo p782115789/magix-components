@@ -1,4 +1,7 @@
 /*
+ver:1.0.0
+*/
+/*
     author:xinglie.lkf@alibaba-inc.com
  */
 let Magix = require('magix');
@@ -10,6 +13,7 @@ module.exports = Magix.View.extend({
         let me = this;
         me.updater.digest({
             keys:['aa','bb','cc'],
+            name_x1:'----',
             user: [{
                 name: 'a'
             }, {
@@ -22,7 +26,7 @@ module.exports = Magix.View.extend({
                 name: 'e'
             }],
             checkbox: [],
-            range: 0,
+            range: 2,
             range1: [230, 300],
             list: [111111111111111, 222222222222222, 333333333333, 44444444444444]
         });
@@ -32,7 +36,7 @@ module.exports = Magix.View.extend({
     },
     'getData<click>' () {
         let src = this.updater.get();
-        let data = this.fromKeys(src, 'name,day,time,tags,checkbox,radio,dateStart,dateEnd,range,range1,mark');
+        let data = this.fromKeys(src, 'name,day,time,tags,checkbox,radio,dateStart,dateEnd,range,range1,mark,name_x1,de');
         console.log(data);
     },
     'abc<focusin>'(e){

@@ -1,4 +1,7 @@
 /*
+ver:1.0.0
+*/
+/*
     author:xinglie.lkf@alibaba-inc.com
  */
 let Magix = require('magix');
@@ -154,6 +157,7 @@ module.exports = Magix.View.extend({
             if (start > end) {
                 [start, end] = [end, start];
             }
+            me.$oNode.prop('value', [start,end]);
             start = me.syncLeft(start);
             end = me.syncRight(end);
             if (me.$start != start || me.$end != end) {

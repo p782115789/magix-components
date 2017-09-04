@@ -1,3 +1,6 @@
+/*
+ver:1.0.0
+*/
 let $ = require('$');
 let Magix = require('magix');
 Magix.applyStyle('@index.less');
@@ -203,39 +206,88 @@ module.exports = {
         }
         return r;
     },
-    isValid() {
+    isValid(ref) {
         let me = this;
+        let result = true;
+        let children = me.owner.children();
+        let topLevel = false;
+        if (!ref) {
+            ref = [];
+            topLevel = true;
+        }
+        for (let i = 0; i < children.length; i++) {
+            let vf = Magix.Vframe.get(children[i]);
+            let r = vf.invoke('isValid', [ref]);
+            if (r === false) {
+                result = false;
+            }
+        }
         let elements = $('#' + me.id + ' [mx-beid^="' + me.id + '\x1e"]');
         elements.each((i, e) => {
             $(e).trigger({
-                type: 'focusout',
-                from: 'valid'
+                type: 'change',
+                from: 'faker'
             });
         });
         let form = me.updater.$form;
         if (form) {
             let keys = Magix.keys(form);
             if (keys.length) {
-                let node = $('[mx-beid="' + keys[0] + '"]')[0];
-                if (node) {
-                    if (node.scrollIntoViewIfNeeded) {
-                        node.scrollIntoViewIfNeeded();
-                    } else if (node.scrollIntoView) {
-                        node.scrollIntoView();
-                    }
-                }
-                return false;
+                ref.push(keys[0]);
+                result = false;
             }
         }
-        return true;
+        if (topLevel) {
+            let minTop = 1e20,
+                node;
+            for (let i = ref.length, n, f; i--;) {
+                n = $('[mx-beid="' + ref[i] + '"]');
+                if (n) {
+                    f = n.offset();
+                    if (f.top < minTop) {
+                        node = n[0];
+                        minTop = f.top;
+                    }
+                }
+            }
+            if (node) {
+                if (node.scrollIntoViewIfNeeded) {
+                    node.scrollIntoViewIfNeeded();
+                } else if (node.scrollIntoView) {
+                    node.scrollIntoView();
+                }
+            }
+        }
+        return result;
     },
-    'syncValue<focusin>' (e) {
+    'syncValue<focusin>'(e) {
         let node = $(e.eventTarget);
         hideError(node.attr('mx-beid'));
         callUserEvent(e, this);
     },
-    'syncValue<change,focusout>' (e) {
-        let me = this;
+    'syncValue<focusout>'(e) {
+        let node = $(e.eventTarget);
+        node.trigger({
+            type: 'change',
+            from: 'faker'
+        });
+        callUserEvent(e, this);
+    },
+    'syncValue<change>'(e) {
+        let me = this,
+            node = $(e.eventTarget);
+        let last = node.prop('_lt');
+        let now = Date.now();
+        if (last && (now - last) < 10) return;
+        node.prop('_lt', now);
+        if (e.viewId) {
+            if (e.viewId != me.id) return;
+        }
+        e.viewId = me.id;
+        let faker = e.from == 'faker' || e.from == 'subview';
+        if (faker) {
+            e.stopPropagation(); //模拟的直接停掉
+        }
         let params = e.params;
         let updater = me.updater;
         if (!updater.$form) {
@@ -246,8 +298,11 @@ module.exports = {
         let ctrls = params.c ? params.c.slice() : [params];
         let refresh = false;
         let valid = true;
+        let rootNode = $('#' + this.id);
+        rootNode.removeAttr('mx-beid');
+        let notify = false;
         let addCheckbox = (name, src, actions) => {
-            $('input[name="' + name + '"]:checked').each(function(idx, item) {
+            $('input[name="' + name + '"]:checked').each(function (idx, item) {
                 let value = item.value;
                 if (actions.number) {
                     value = parseFloat(value);
@@ -263,7 +318,7 @@ module.exports = {
             let ps = ctrl.p.split('.');
             let actions = ctrl.f || {};
             let key = ps.pop(),
-                temp, node = $(e.eventTarget),
+                temp,
                 value,
                 rootKey;
             let object = updater.get();
@@ -273,14 +328,16 @@ module.exports = {
                 object = object[temp];
             }
             rootKey = rootKey || key;
-            if (node.prop('type') == 'checkbox') {
+            if (e.from == 'subview') {
+                value = e.values[actions.from || key];
+            } else if (node.prop('type') == 'checkbox') {
                 let src = object[key];
                 let checked = node.prop('checked');
                 if (src === true || src === false) {
                     value = checked;
                 } else {
                     value = node.val();
-                    if (actions.number && value) {
+                    if (actions.number) {
                         value = parseFloat(value);
                     }
                     if ($.isArray(src)) {
@@ -290,7 +347,7 @@ module.exports = {
                             addCheckbox(checkboxName, src, actions);
                         } else {
                             value = node.val();
-                            if (actions.number && value) {
+                            if (actions.number) {
                                 value = parseFloat(value);
                             }
                             let idx = src.indexOf(value);
@@ -318,22 +375,25 @@ module.exports = {
                 }
             } else {
                 value = node.val();
-                if (actions.number && value) {
+                if (actions.number) {
                     value = parseFloat(value);
                 }
             }
-            let beId = node.attr('mx-beid');
             if (object) {
-                object[key] = value;
-                if (actions.refresh) {
-                    refresh = true;
-                    keys[rootKey] = 1; //标记改变;
+                if (object[key] !== value) {
+                    object[key] = value;
+                    if (actions.refresh) {
+                        refresh = true;
+                        keys[rootKey] = 1; //标记改变;
+                    }
+                    notify = true;
                 }
             } else {
                 console.warn('can not set by path:', ctrl.p);
             }
             if (valid) {
                 let v = isValid(actions, value);
+                let beId = node.attr('mx-beid');
                 if (v.f) {
                     delete form[beId];
                     hideError(beId);
@@ -347,11 +407,18 @@ module.exports = {
         if (valid && refresh) {
             updater.digest();
         }
-        if (e.from != 'valid') {
+        if (notify) {
+            rootNode.trigger({
+                type: 'change',
+                from: 'subview',
+                values: updater.get()
+            });
+        }
+        if (!faker) {
             callUserEvent(e, me);
         }
     },
-    '$doc<htmlchange>' (e) {
+    '$doc<htmlchange>'(e) {
         let me = this;
         let form = me.updater.$form;
         if (e.vId == me.id) {

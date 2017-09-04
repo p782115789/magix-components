@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.5.4: https://github.com/thx/magix-combine
+    generate by magix-combine@3.5.6: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd
  */
@@ -7,14 +7,17 @@ define('mx-slider/index',["magix","$","../mx-dragdrop/index"],function(require,e
 /*Magix,$,DD*/
 
 /*
+ver:1.0.0
+*/
+/*
     author:xinglie.lkf@taobao.com
  */
 let Magix = require('magix');
 let $ = require('$');
-Magix.applyStyle("mx3e3-_mx-slider_index_",".mx3e3-_mx-slider_index_-as-input {\n  height: 32px;\n  cursor: default;\n  line-height: normal;\n}\n.mx3e3-_mx-slider_index_-rail {\n  height: 4px;\n  background: #eaeaea;\n  position: relative;\n  display: inline-block;\n  border-radius: 2px;\n}\n.mx3e3-_mx-slider_index_-tracker {\n  height: 4px;\n  background: #6363e6;\n  position: absolute;\n  left: 0;\n  top: 0;\n  border-radius: 2px;\n}\n.mx3e3-_mx-slider_index_-indicator {\n  border-radius: 50%;\n  width: 12px;\n  height: 12px;\n  position: absolute;\n  top: -4px;\n  background: #fff;\n  border: solid 2px #6363e6;\n}\n.mx3e3-_mx-slider_index_-pointer-label,\n.mx3e3-_mx-slider_index_-scale-left,\n.mx3e3-_mx-slider_index_-scale-right {\n  position: absolute;\n  font-size: 9px;\n  pointer-events: none;\n}\n.mx3e3-_mx-slider_index_-pointer-label {\n  top: -15px;\n  left: 2px;\n}\n.mx3e3-_mx-slider_index_-scale-left {\n  left: 0;\n  top: 10px;\n}\n.mx3e3-_mx-slider_index_-scale-right {\n  right: 0;\n  top: 10px;\n}\n.mx3e3-_mx-slider_index_-notallowed {\n  cursor: not-allowed;\n}\n.mx3e3-_mx-slider_index_-notallowed .mx3e3-_mx-slider_index_-rail {\n  background-color: #fbfbfb;\n}\n.mx3e3-_mx-slider_index_-notallowed .mx3e3-_mx-slider_index_-tracker {\n  background-color: #eaeaea;\n}\n.mx3e3-_mx-slider_index_-notallowed .mx3e3-_mx-slider_index_-indicator {\n  border-color: #eaeaea;\n}\n");
+Magix.applyStyle("mx3e3_mx-slider_index_",".mx3e3_mx-slider_index_-as-input {\n  height: 32px;\n  cursor: default;\n  line-height: normal;\n}\n.mx3e3_mx-slider_index_-rail {\n  height: 4px;\n  background: #eaeaea;\n  position: relative;\n  display: inline-block;\n  border-radius: 2px;\n}\n.mx3e3_mx-slider_index_-tracker {\n  height: 4px;\n  background: #6363e6;\n  position: absolute;\n  left: 0;\n  top: 0;\n  border-radius: 2px;\n}\n.mx3e3_mx-slider_index_-indicator {\n  border-radius: 50%;\n  width: 12px;\n  height: 12px;\n  position: absolute;\n  top: -4px;\n  background: #fff;\n  border: solid 2px #6363e6;\n}\n.mx3e3_mx-slider_index_-pointer-label,\n.mx3e3_mx-slider_index_-scale-left,\n.mx3e3_mx-slider_index_-scale-right {\n  position: absolute;\n  font-size: 9px;\n  pointer-events: none;\n}\n.mx3e3_mx-slider_index_-pointer-label {\n  top: -15px;\n  left: 2px;\n}\n.mx3e3_mx-slider_index_-scale-left {\n  left: 0;\n  top: 10px;\n}\n.mx3e3_mx-slider_index_-scale-right {\n  right: 0;\n  top: 10px;\n}\n.mx3e3_mx-slider_index_-notallowed {\n  cursor: not-allowed;\n}\n.mx3e3_mx-slider_index_-notallowed .mx3e3_mx-slider_index_-rail {\n  background-color: #fbfbfb;\n}\n.mx3e3_mx-slider_index_-notallowed .mx3e3_mx-slider_index_-tracker {\n  background-color: #eaeaea;\n}\n.mx3e3_mx-slider_index_-notallowed .mx3e3_mx-slider_index_-indicator {\n  border-color: #eaeaea;\n}\n");
 let DD = require('../mx-dragdrop/index');
 module.exports = Magix.View.extend({
-    tmpl: {"html":"<div class=\"mx3e3-_mx-slider_index_-rail\"><div class=\"mx3e3-_mx-slider_index_-tracker\"></div><div class=\"mx3e3-_mx-slider_index_-indicator\" mx-mousedown=\"\u001f\u001edrag()\"><div class=\"mx3e3-_mx-slider_index_-pointer-label\">0</div></div><div mx-guid=\"g0\u001f\" class=\"mx3e3-_mx-slider_index_-scale-left\">1\u001d</div><div mx-guid=\"g1\u001f\" class=\"mx3e3-_mx-slider_index_-scale-right\">2\u001d</div></div>","subs":[{"keys":["min"],"path":"div[mx-guid=\"g0\u001f\"]","tmpl":"<%=$$.min%>","s":"1\u001d"},{"keys":["max"],"path":"div[mx-guid=\"g1\u001f\"]","tmpl":"<%=$$.max%>","s":"2\u001d"}],"file":"mx-slider/index.html"},
+    tmpl: {"html":"<div class=\"mx3e3_mx-slider_index_-rail\"><div class=\"mx3e3_mx-slider_index_-tracker\"></div><div class=\"mx3e3_mx-slider_index_-indicator\" mx-mousedown=\"\u001f\u001edrag()\"><div class=\"mx3e3_mx-slider_index_-pointer-label\">0</div></div><div mx-guid=\"g0\u001f\" class=\"mx3e3_mx-slider_index_-scale-left\">1\u001d</div><div mx-guid=\"g1\u001f\" class=\"mx3e3_mx-slider_index_-scale-right\">2\u001d</div></div>","subs":[{"keys":["min"],"path":"div[mx-guid=\"g0\u001f\"]","tmpl":"<%=$$.min%>","s":"1\u001d"},{"keys":["max"],"path":"div[mx-guid=\"g1\u001f\"]","tmpl":"<%=$$.max%>","s":"2\u001d"}],"file":"mx-slider/index.html"},
     init(extra) {
         let me = this;
         me.$oNode = $('#' + me.id);
@@ -52,19 +55,19 @@ module.exports = Magix.View.extend({
             min: me.$min,
             max: me.$max
         });
-        me.$oNode.addClass('mx3e3-_mx-slider_index_-as-input');
+        me.$oNode.addClass('mx3e3_mx-slider_index_-as-input');
         if (me.$disabled) {
-            me.$oNode.addClass('mx3e3-_mx-slider_index_-notallowed');
+            me.$oNode.addClass('mx3e3_mx-slider_index_-notallowed');
         }
-        me.$oNode.find('.mx3e3-_mx-slider_index_-rail').width(me.$width);
+        me.$oNode.find('.mx3e3_mx-slider_index_-rail').width(me.$width);
         me.val(me.$value);
     },
     vars() {
         let me = this;
-        let rail = me.$oNode.find('.mx3e3-_mx-slider_index_-rail');
-        let tracker = me.$oNode.find('.mx3e3-_mx-slider_index_-tracker');
-        let indicator = me.$oNode.find('.mx3e3-_mx-slider_index_-indicator');
-        let pLabel = indicator.find('.mx3e3-_mx-slider_index_-pointer-label');
+        let rail = me.$oNode.find('.mx3e3_mx-slider_index_-rail');
+        let tracker = me.$oNode.find('.mx3e3_mx-slider_index_-tracker');
+        let indicator = me.$oNode.find('.mx3e3_mx-slider_index_-indicator');
+        let pLabel = indicator.find('.mx3e3_mx-slider_index_-pointer-label');
         let half = indicator.outerWidth() / 2;
         let max = rail.width() - half * 2;
         return {
@@ -79,9 +82,10 @@ module.exports = Magix.View.extend({
     val(v, ignoreSyncValue) {
         let me = this;
         let nv = +v;
-        let max = me.$max,
-            min = me.$min;
         if (nv || nv === 0) {
+            me.$oNode.prop('value', nv);
+            let max = me.$max,
+                min = me.$min;
             if (nv > max) nv = max;
             else if (nv < min) nv = min;
             let p = (nv - min) / (max - min);

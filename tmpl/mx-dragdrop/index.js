@@ -1,4 +1,7 @@
 /*
+ver:1.0.0
+*/
+/*
     author:xinglie.lkf@taobao.com
  */
 let $ = require('$');

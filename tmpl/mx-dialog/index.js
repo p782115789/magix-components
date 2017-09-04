@@ -1,4 +1,7 @@
 /*
+ver:1.0.0
+*/
+/*
     author:xinglie.lkf@alibaba-inc.com
  */
 let Magix = require('magix');
@@ -134,7 +137,7 @@ module.exports = Magix.View.extend({
         let dOptions = {
             view: view
         };
-        seajs.use([view], me.wrapAsync(V => {
+        Magix.use(view, me.wrapAsync(V => {
             let key = '$dlg_' + view;
             if (me[key]) return;
             me[key] = 1;
@@ -166,5 +169,3 @@ module.exports = Magix.View.extend({
         };
     }
 });
-'bottom@alert.js';
-'bottom@confirm.js';

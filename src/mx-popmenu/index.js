@@ -1,11 +1,14 @@
 /*
-    generate by magix-combine@3.5.4: https://github.com/thx/magix-combine
+    generate by magix-combine@3.5.6: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd
  */
 define('mx-popmenu/index',["magix","$","../mx-monitor/index"],function(require,exports,module){
 /*Magix,$,Monitor*/
 
+/*
+ver:1.0.0
+*/
 /*
     author:xinglie.lkf@alibaba-inc.com
  */

@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.5.4: https://github.com/thx/magix-combine
+    generate by magix-combine@3.5.6: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd
  */
@@ -7,14 +7,17 @@ define('mx-taginput/suggest',["magix","$","../mx-monitor/index"],function(requir
 /*Magix,$,Monitor*/
 
 /*
+ver:1.0.0
+*/
+/*
     author: xinglie.lkf@ alibaba - inc.com
  */
 let Magix = require('magix');
 let $ = require('$');
 let Monitor = require('../mx-monitor/index');
-Magix.applyStyle("mx3e3-_mx-taginput_suggest_",".mx3e3-_mx-taginput_suggest_-suggest {\n  position: absolute;\n  border: 1px solid #e6e6e6;\n  font-size: 14px;\n  max-height: 260px;\n  overflow: auto;\n  list-style: none;\n  border-radius: 4px;\n  background-color: #fff;\n  display: none;\n  z-index: 10;\n  padding: 3px 0;\n  line-height: 1.8;\n}\n.mx3e3-_mx-taginput_suggest_-item {\n  padding: 0 4px;\n  cursor: pointer;\n  margin: 2px 0;\n}\n.mx3e3-_mx-taginput_suggest_-item-link {\n  color: #666;\n  display: block;\n  width: 100%;\n  padding: 0 6px;\n  height: 29px;\n  line-height: 29px;\n  border-radius: 4px;\n}\n.mx3e3-_mx-taginput_suggest_-item-link:hover,\n.mx3e3-_mx-taginput_suggest_-item-link:focus,\n.mx3e3-_mx-taginput_suggest_-item-link:active {\n  color: #333;\n  background-color: #f0f0f0;\n}\n.mx3e3-_mx-taginput_suggest_-active {\n  color: #333;\n  background-color: #f0f0f0;\n  border-radius: 4px;\n  text-decoration: none;\n  outline: 0;\n}\n");
+Magix.applyStyle("mx3e3_mx-taginput_suggest_",".mx3e3_mx-taginput_suggest_-suggest {\n  position: absolute;\n  border: 1px solid #e6e6e6;\n  font-size: 14px;\n  max-height: 260px;\n  overflow: auto;\n  list-style: none;\n  border-radius: 4px;\n  background-color: #fff;\n  display: none;\n  z-index: 10;\n  padding: 3px 0;\n  line-height: 1.8;\n}\n.mx3e3_mx-taginput_suggest_-item {\n  padding: 0 4px;\n  cursor: pointer;\n  margin: 2px 0;\n}\n.mx3e3_mx-taginput_suggest_-item-link {\n  color: #666;\n  display: block;\n  width: 100%;\n  padding: 0 6px;\n  height: 29px;\n  line-height: 29px;\n  border-radius: 4px;\n}\n.mx3e3_mx-taginput_suggest_-item-link:hover,\n.mx3e3_mx-taginput_suggest_-item-link:focus,\n.mx3e3_mx-taginput_suggest_-item-link:active {\n  color: #333;\n  background-color: #f0f0f0;\n}\n.mx3e3_mx-taginput_suggest_-active {\n  color: #333;\n  background-color: #f0f0f0;\n  border-radius: 4px;\n  text-decoration: none;\n  outline: 0;\n}\n");
 module.exports = Magix.View.extend({
-    tmpl: {"html":"<ul mx-guid=\"g0\u001f\" class=\"mx3e3-_mx-taginput_suggest_-suggest\" style=\"width:<%=$$.width%>px\" mx-mouseout=\"\u001f\u001eout()\" mx-mousemove=\"\u001f\u001emove()\">1\u001d</ul>","subs":[{"keys":["width","rList","list","viewId","textKey"],"path":"ul[mx-guid=\"g0\u001f\"]","tmpl":"<%if($$.rList){%><%for(var a=0,b;a<$$.list.length;a++){%><%b=$$.list[a]%><li class=\"mx3e3-_mx-taginput_suggest_-item\"><a href=\"#\" class=\"mx3e3-_mx-taginput_suggest_-item-link\" data-idx=\"<%!a%>\" mx-click=\"\u001f\u001epick({item:'<%@b%>'})\" id=\"sg_<%!$$.viewId%>_<%!a%>\"><%=$$.textKey?b[$$.textKey]:b%></a></li><%}%><%}%>","s":"1\u001d","attr":"style=\"width:<%=$$.width%>px\"","attrs":[{"n":"style"}],"mask":"21111"}],"file":"mx-taginput/suggest.html"},
+    tmpl: {"html":"<ul mx-guid=\"g0\u001f\" class=\"mx3e3_mx-taginput_suggest_-suggest\" style=\"width:<%=$$.width%>px\" mx-mouseout=\"\u001f\u001eout()\" mx-mousemove=\"\u001f\u001emove()\">1\u001d</ul>","subs":[{"keys":["width","rList","list","viewId","textKey"],"path":"ul[mx-guid=\"g0\u001f\"]","tmpl":"<%if($$.rList){%><%for(var a=0,b;a<$$.list.length;a++){%><%b=$$.list[a]%><li class=\"mx3e3_mx-taginput_suggest_-item\"><a href=\"#\" class=\"mx3e3_mx-taginput_suggest_-item-link\" data-idx=\"<%!a%>\" mx-click=\"\u001f\u001epick({item:'<%@b%>'})\" id=\"sg_<%!$$.viewId%>_<%!a%>\"><%=$$.textKey?b[$$.textKey]:b%></a></li><%}%><%}%>","s":"1\u001d","attr":"style=\"width:<%=$$.width%>px\"","attrs":[{"n":"style"}],"mask":"21111"}],"file":"mx-taginput/suggest.html"},
     init(extra) {
         let me = this;
         me.$scrollTop = extra.scrollTop || 0;
@@ -59,9 +62,9 @@ module.exports = Magix.View.extend({
         });
         if (me.$rNode) {
             if (!list || !list.length) {
-                me.$rNode.removeClass('mx3e3-_mx-taginput_suggest_-suggest');
+                me.$rNode.removeClass('mx3e3_mx-taginput_suggest_-suggest');
             } else {
-                me.$rNode.addClass('mx3e3-_mx-taginput_suggest_-suggest');
+                me.$rNode.addClass('mx3e3_mx-taginput_suggest_-suggest');
             }
         }
     },
@@ -77,7 +80,7 @@ module.exports = Magix.View.extend({
         me.update(me.$list);
         me.$rNode = $('#' + id + ' ul');
         if (!me.$list || !me.$list.length) {
-            me.$rNode.removeClass('mx3e3-_mx-taginput_suggest_-suggest');
+            me.$rNode.removeClass('mx3e3_mx-taginput_suggest_-suggest');
         }
         setTimeout(me.wrapAsync(() => {
             me.$rNode.prop('scrollTop', me.$scrollTop);
@@ -158,12 +161,12 @@ module.exports = Magix.View.extend({
     normal() {
         let me = this;
         let node = $('#sg_' + me.id + '_' + me.$idx);
-        node.removeClass('mx3e3-_mx-taginput_suggest_-active');
+        node.removeClass('mx3e3_mx-taginput_suggest_-active');
     },
     highlight(ignore) {
         let me = this;
         let node = $('#sg_' + me.id + '_' + me.$idx);
-        node.addClass('mx3e3-_mx-taginput_suggest_-active');
+        node.addClass('mx3e3_mx-taginput_suggest_-active');
         if (!ignore && node.length) {
             me.$ignore = 1; //如果是上下按键引起的滚动，则在move时忽略
             let height = node.outerHeight();

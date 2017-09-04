@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.5.4: https://github.com/thx/magix-combine
+    generate by magix-combine@3.5.6: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd
  */
@@ -7,14 +7,17 @@ define('mx-dropdown/multiple',["magix","$","../mx-monitor/index"],function(requi
 /*Magix,$,Monitor*/
 
 /*
+ver:1.0.0
+*/
+/*
     author:xinglie.lkf@alibaba-inc.com
  */
 let Magix = require('magix');
 let $ = require('$');
 let Monitor = require('../mx-monitor/index');
-Magix.applyStyle("mx3e3-_mx-dropdown_multiple_",".mx3e3-_mx-dropdown_multiple_-dropdown {\n  position: relative;\n  width: 340px;\n  background-color: #fff;\n  border: solid 1px #e6e6e6;\n  border-radius: 4px;\n  display: inline-block;\n  vertical-align: middle;\n}\n.mx3e3-_mx-dropdown_multiple_-dropdown:hover {\n  border-color: #ccc;\n}\n.mx3e3-_mx-dropdown_multiple_-dropdown-toggle {\n  color: #333;\n  position: relative;\n  width: 100%;\n  cursor: pointer;\n  user-select: none;\n  padding: 0 30px 0 12px;\n  border-radius: 3px;\n}\n.mx3e3-_mx-dropdown_multiple_-notallowed {\n  cursor: not-allowed;\n  background-color: #fbfbfb;\n}\n.mx3e3-_mx-dropdown_multiple_-notallowed:hover {\n  border-color: #e6e6e6;\n}\n.mx3e3-_mx-dropdown_multiple_-notallowed .mx3e3-_mx-dropdown_multiple_-dropdown-toggle {\n  cursor: not-allowed;\n}\n.mx3e3-_mx-dropdown_multiple_-arrow {\n  position: absolute;\n  right: 0;\n  top: 2px;\n  font-size: 28px;\n  color: #e6e6e6;\n  transition: transform 0.3s,top 0.3s;\n}\n.mx3e3-_mx-dropdown_multiple_-open .mx3e3-_mx-dropdown_multiple_-arrow {\n  transform: rotate(180deg);\n  top: 0;\n}\n.mx3e3-_mx-dropdown_multiple_-open,\n.mx3e3-_mx-dropdown_multiple_-open:hover {\n  border-color: #6363e6;\n}\n.mx3e3-_mx-dropdown_multiple_-dropdown-toggle-label {\n  height: 30px;\n  line-height: 30px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  display: block;\n}\n.mx3e3-_mx-dropdown_multiple_-dropdown-toggle-label-ph {\n  color: #999;\n}\n.mx3e3-_mx-dropdown_multiple_-dropdown-menu-wrapper {\n  position: absolute;\n  top: 100%;\n  left: -1px;\n  width: 350px;\n  margin-top: 5px;\n  border-radius: 4px;\n  z-index: 300;\n  border: 1px solid #e6e6e6;\n  background-color: #fff;\n  display: none;\n  user-select: none;\n}\n.mx3e3-_mx-dropdown_multiple_-open .mx3e3-_mx-dropdown_multiple_-dropdown-menu-wrapper {\n  display: block;\n}\n.mx3e3-_mx-dropdown_multiple_-dropdown-menu {\n  overflow: auto;\n  max-height: 192px;\n  padding-bottom: 3px;\n  padding-top: 5px;\n}\n.mx3e3-_mx-dropdown_multiple_-searchbox {\n  display: block;\n  width: 100%;\n  padding: 9px 9px 4px 9px;\n}\n.mx3e3-_mx-dropdown_multiple_-searchbox-wrapper {\n  padding: 0;\n  width: 100%;\n}\n.mx3e3-_mx-dropdown_multiple_-search-icon {\n  color: #ccc;\n  position: absolute;\n  left: 15px;\n  top: 18px;\n}\n.mx3e3-_mx-dropdown_multiple_-search-input {\n  padding-left: 28px;\n  width: 100%;\n  height: 28px;\n  line-height: 28px;\n}\n.mx3e3-_mx-dropdown_multiple_-dropdown-header {\n  padding: 5px;\n  color: #999;\n  display: block;\n  cursor: default;\n}\n.mx3e3-_mx-dropdown_multiple_-dropdown-item {\n  padding: 3px 4px;\n}\n.mx3e3-_mx-dropdown_multiple_-item-link {\n  color: #666;\n  display: block;\n  width: 100%;\n  padding: 0 6px;\n  height: 26px;\n  line-height: 26px;\n  border-radius: 4px;\n}\n.mx3e3-_mx-dropdown_multiple_-s-item {\n  width: 32%;\n  float: left;\n  margin-left: 2px;\n  margin-bottom: 2px;\n}\n.mx3e3-_mx-dropdown_multiple_-s-item-link {\n  color: #666;\n  display: block;\n  padding: 0 12px;\n  height: 29px;\n  line-height: 29px;\n  border-radius: 4px;\n}\n.mx3e3-_mx-dropdown_multiple_-item-link:hover,\n.mx3e3-_mx-dropdown_multiple_-item-link:focus,\n.mx3e3-_mx-dropdown_multiple_-item-link:active,\n.mx3e3-_mx-dropdown_multiple_-s-item-link:hover,\n.mx3e3-_mx-dropdown_multiple_-s-item-link:focus,\n.mx3e3-_mx-dropdown_multiple_-s-item-link:active {\n  color: #333;\n  background-color: #f0f0f0;\n}\n.mx3e3-_mx-dropdown_multiple_-active,\n.mx3e3-_mx-dropdown_multiple_-active:hover,\n.mx3e3-_mx-dropdown_multiple_-active:active,\n.mx3e3-_mx-dropdown_multiple_-active:focus {\n  color: #fff;\n  background-color: #6363e6;\n}\n.mx3e3-_mx-dropdown_multiple_-footer {\n  border-top: 1px solid #e6e6e6;\n  margin: 0 10px;\n  padding: 10px 0;\n}\n");
+Magix.applyStyle("mx3e3_mx-dropdown_multiple_",".mx3e3_mx-dropdown_multiple_-dropdown {\n  position: relative;\n  width: 340px;\n  background-color: #fff;\n  border: solid 1px #e6e6e6;\n  border-radius: 4px;\n  display: inline-block;\n  vertical-align: middle;\n}\n.mx3e3_mx-dropdown_multiple_-dropdown:hover {\n  border-color: #ccc;\n}\n.mx3e3_mx-dropdown_multiple_-dropdown-toggle {\n  color: #333;\n  position: relative;\n  width: 100%;\n  cursor: pointer;\n  user-select: none;\n  padding: 0 30px 0 12px;\n  border-radius: 3px;\n}\n.mx3e3_mx-dropdown_multiple_-notallowed {\n  cursor: not-allowed;\n  background-color: #fbfbfb;\n}\n.mx3e3_mx-dropdown_multiple_-notallowed:hover {\n  border-color: #e6e6e6;\n}\n.mx3e3_mx-dropdown_multiple_-notallowed .mx3e3_mx-dropdown_multiple_-dropdown-toggle {\n  cursor: not-allowed;\n}\n.mx3e3_mx-dropdown_multiple_-arrow {\n  position: absolute;\n  right: 0;\n  top: 2px;\n  font-size: 28px;\n  color: #e6e6e6;\n  transition: transform 0.3s,top 0.3s;\n}\n.mx3e3_mx-dropdown_multiple_-open .mx3e3_mx-dropdown_multiple_-arrow {\n  transform: rotate(180deg);\n  top: 0;\n}\n.mx3e3_mx-dropdown_multiple_-open,\n.mx3e3_mx-dropdown_multiple_-open:hover {\n  border-color: #6363e6;\n}\n.mx3e3_mx-dropdown_multiple_-dropdown-toggle-label {\n  height: 30px;\n  line-height: 30px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  display: block;\n}\n.mx3e3_mx-dropdown_multiple_-dropdown-toggle-label-ph {\n  color: #999;\n}\n.mx3e3_mx-dropdown_multiple_-dropdown-menu-wrapper {\n  position: absolute;\n  top: 100%;\n  left: -1px;\n  width: 350px;\n  margin-top: 5px;\n  border-radius: 4px;\n  z-index: 300;\n  border: 1px solid #e6e6e6;\n  background-color: #fff;\n  display: none;\n  user-select: none;\n}\n.mx3e3_mx-dropdown_multiple_-open .mx3e3_mx-dropdown_multiple_-dropdown-menu-wrapper {\n  display: block;\n}\n.mx3e3_mx-dropdown_multiple_-dropdown-menu {\n  overflow: auto;\n  max-height: 192px;\n  padding-bottom: 3px;\n  padding-top: 5px;\n}\n.mx3e3_mx-dropdown_multiple_-searchbox {\n  display: block;\n  width: 100%;\n  padding: 9px 9px 4px 9px;\n}\n.mx3e3_mx-dropdown_multiple_-searchbox-wrapper {\n  padding: 0;\n  width: 100%;\n}\n.mx3e3_mx-dropdown_multiple_-search-icon {\n  color: #ccc;\n  position: absolute;\n  left: 15px;\n  top: 18px;\n}\n.mx3e3_mx-dropdown_multiple_-search-input {\n  padding-left: 28px;\n  width: 100%;\n  height: 28px;\n  line-height: 28px;\n}\n.mx3e3_mx-dropdown_multiple_-dropdown-header {\n  padding: 5px;\n  color: #999;\n  display: block;\n  cursor: default;\n}\n.mx3e3_mx-dropdown_multiple_-dropdown-item {\n  padding: 3px 4px;\n}\n.mx3e3_mx-dropdown_multiple_-item-link {\n  color: #666;\n  display: block;\n  width: 100%;\n  padding: 0 6px;\n  height: 26px;\n  line-height: 26px;\n  border-radius: 4px;\n}\n.mx3e3_mx-dropdown_multiple_-s-item {\n  width: 32%;\n  float: left;\n  margin-left: 2px;\n  margin-bottom: 2px;\n}\n.mx3e3_mx-dropdown_multiple_-s-item-link {\n  color: #666;\n  display: block;\n  padding: 0 12px;\n  height: 29px;\n  line-height: 29px;\n  border-radius: 4px;\n}\n.mx3e3_mx-dropdown_multiple_-item-link:hover,\n.mx3e3_mx-dropdown_multiple_-item-link:focus,\n.mx3e3_mx-dropdown_multiple_-item-link:active,\n.mx3e3_mx-dropdown_multiple_-s-item-link:hover,\n.mx3e3_mx-dropdown_multiple_-s-item-link:focus,\n.mx3e3_mx-dropdown_multiple_-s-item-link:active {\n  color: #333;\n  background-color: #f0f0f0;\n}\n.mx3e3_mx-dropdown_multiple_-active,\n.mx3e3_mx-dropdown_multiple_-active:hover,\n.mx3e3_mx-dropdown_multiple_-active:active,\n.mx3e3_mx-dropdown_multiple_-active:focus {\n  color: #fff;\n  background-color: #6363e6;\n}\n.mx3e3_mx-dropdown_multiple_-footer {\n  border-top: 1px solid #e6e6e6;\n  margin: 0 10px;\n  padding: 10px 0;\n}\n");
 module.exports = Magix.View.extend({
-    tmpl: {"html":"<div mx-guid=\"g0\u001f\" class=\"mx3e3-_mx-dropdown_multiple_-dropdown-toggle\" mx-click=\"\u001f\u001etoggle()\" title=\"<%=$$.selectedText%>\"><span mx-guid=\"g1\u001f\" class=\"mx3e3-_mx-dropdown_multiple_-dropdown-toggle-label<%if($$.phLabel){%> mx3e3-_mx-dropdown_multiple_-dropdown-toggle-label-ph<%}%>\">2\u001d</span><span class=\"mx3e3-_mx-style_index_-iconfont mx3e3-_mx-dropdown_multiple_-arrow\">&#xe692;</span></div><div mx-guid=\"g2\u001f\" class=\"mx3e3-_mx-dropdown_multiple_-dropdown-menu-wrapper\">3\u001d</div>","subs":[{"keys":["selectedText"],"path":"div[mx-guid=\"g0\u001f\"]","attr":"title=\"<%=$$.selectedText%>\"","attrs":[{"n":"title","p":1}]},{"keys":["phLabel","selectedText"],"path":"span[mx-guid=\"g1\u001f\"]","tmpl":"<%=$$.selectedText%>","s":"2\u001d","attr":"class=\"mx3e3-_mx-dropdown_multiple_-dropdown-toggle-label<%if($$.phLabel){%> mx3e3-_mx-dropdown_multiple_-dropdown-toggle-label-ph<%}%>\"","attrs":[{"n":"class","p":1,"f":"className"}],"mask":"21"},{"keys":["rList","searchbox"],"path":"div[mx-guid=\"g2\u001f\"]","tmpl":"<%if($$.rList){%><%if($$.searchbox){%><div class=\"mx3e3-_mx-dropdown_multiple_-searchbox\"><label class=\"mx3e3-_mx-dropdown_multiple_-searchbox-wrapper\"><span class=\"mx3e3-_mx-style_index_-iconfont mx3e3-_mx-dropdown_multiple_-search-icon\">&#xe608;</span><input mx-keyup=\"\u001f\u001esearch()\" mx-paste=\"\u001f\u001esearch()\" mx-change=\"\u001f\u001estop()\" mx-focusin=\"\u001f\u001estop()\" mx-focusout=\"\u001f\u001estop()\" placeholder=\"搜索关键词\" class=\"mx3e3-_mx-style_index_-input mx3e3-_mx-dropdown_multiple_-search-input\"></label></div><%}%><ul mx-guid=\"g3\u001f\" class=\"mx3e3-_mx-dropdown_multiple_-dropdown-menu\" id=\"list_<%=$$.viewId%>\">4\u001d</ul><div class=\"mx3e3-_mx-dropdown_multiple_-footer\"><button class=\"mx3e3-_mx-style_index_-btn mx3e3-_mx-style_index_-btn-brand\" mx-click=\"\u001f\u001ehide({enter:true})\">确定</button><button class=\"mx3e3-_mx-style_index_-btn mx3e3-_mx-style_index_-ml5\" mx-click=\"\u001f\u001ehide()\">取消</button></div><%}%>","s":"3\u001d"},{"keys":["viewId","selected","list","textKey","valueKey"],"path":"ul[mx-guid=\"g3\u001f\"]","pKeys":["rList","searchbox"],"tmpl":"<%let a=$$.selected.split(','),b,c;%><%for(let d=0;d<$$.list.length;d++){%><%let e=$$.list[d];%><%if(e&&e.group){%><li class=\"mx3e3-_mx-dropdown_multiple_-dropdown-header mx3e3-_mx-style_index_-ellipsis\" title=\"<%=e[$$.textKey]%>\"><%=e[$$.textKey]%></li><%}else{%><%if($$.textKey&&$$.valueKey){%><%b=e[$$.textKey];c=e[$$.valueKey]%><%}else{%><%b=e;c=e;%><%}%><%let f=$$.inArray(c+'',a)>-1%><%if(c===''){%><li title=\"<%=b%>\" class=\"mx3e3-_mx-dropdown_multiple_-dropdown-item\"><a href=\"#\" class=\"mx3e3-_mx-dropdown_multiple_-item-link mx3e3-_mx-style_index_-ellipsis <%if(f){%> mx3e3-_mx-dropdown_multiple_-active<%}%>\" mx-click=\"\u001f\u001eselect({item:'<%@e%>'})\"><%=b%></a></li><%}else{%><li class=\"mx3e3-_mx-dropdown_multiple_-dropdown-item mx3e3-_mx-style_index_-clearfix\"><ul><%for(;d<$$.list.length;d++){%><%e=$$.list[d]%><%if(e&&e.group){%><%d--;%><%break;%><%}%><%if($$.textKey&&$$.valueKey){%><%b=e[$$.textKey];c=e[$$.valueKey]%><%}else{%><%b=e;c=e;%><%}%><%let g=$$.inArray(c+'',a)>-1%><li class=\"mx3e3-_mx-dropdown_multiple_-s-item\"><a href=\"#\" class=\"mx3e3-_mx-dropdown_multiple_-s-item-link mx3e3-_mx-style_index_-ellipsis<%if(g){%> mx3e3-_mx-dropdown_multiple_-active<%}%>\" mx-click=\"\u001f\u001eselect({item:'<%@e%>'})\"><%=b%></a></li><%}%></ul></li><%}%><%}%><%}%>","s":"4\u001d","attr":"id=\"list_<%=$$.viewId%>\"","attrs":[{"n":"id","p":1}],"mask":"21111"}],"file":"mx-dropdown/multiple.html"},
+    tmpl: {"html":"<div mx-guid=\"g0\u001f\" class=\"mx3e3_mx-dropdown_multiple_-dropdown-toggle\" mx-click=\"\u001f\u001etoggle()\" title=\"<%=$$.selectedText%>\"><span mx-guid=\"g1\u001f\" class=\"mx3e3_mx-dropdown_multiple_-dropdown-toggle-label <%if($$.phLabel){%> mx3e3_mx-dropdown_multiple_-dropdown-toggle-label-ph <%}%>\">2\u001d</span><span class=\"mx3e3_mx-style_index_-iconfont mx3e3_mx-dropdown_multiple_-arrow\">&#xe692;</span></div><div mx-guid=\"g2\u001f\" class=\"mx3e3_mx-dropdown_multiple_-dropdown-menu-wrapper\">3\u001d</div>","subs":[{"keys":["selectedText"],"path":"div[mx-guid=\"g0\u001f\"]","attr":"title=\"<%=$$.selectedText%>\"","attrs":[{"n":"title","p":1}]},{"keys":["phLabel","selectedText"],"path":"span[mx-guid=\"g1\u001f\"]","tmpl":"<%=$$.selectedText%>","s":"2\u001d","attr":"class=\"mx3e3_mx-dropdown_multiple_-dropdown-toggle-label <%if($$.phLabel){%> mx3e3_mx-dropdown_multiple_-dropdown-toggle-label-ph <%}%>\"","attrs":[{"n":"class","p":1,"f":"className"}],"mask":"21"},{"keys":["rList","searchbox"],"path":"div[mx-guid=\"g2\u001f\"]","tmpl":"<%if($$.rList){%><%if($$.searchbox){%><div class=\"mx3e3_mx-dropdown_multiple_-searchbox\"><label class=\"mx3e3_mx-dropdown_multiple_-searchbox-wrapper\"><span class=\"mx3e3_mx-style_index_-iconfont mx3e3_mx-dropdown_multiple_-search-icon\">&#xe608;</span><input mx-keyup=\"\u001f\u001esearch()\" mx-paste=\"\u001f\u001esearch()\" mx-change=\"\u001f\u001estop()\" mx-focusin=\"\u001f\u001estop()\" mx-focusout=\"\u001f\u001estop()\" placeholder=\"搜索关键词\" class=\"mx3e3_mx-style_index_-input mx3e3_mx-dropdown_multiple_-search-input\"></label></div><%}%><ul mx-guid=\"g3\u001f\" class=\"mx3e3_mx-dropdown_multiple_-dropdown-menu\" id=\"list_<%=$$.viewId%>\">4\u001d</ul><div class=\"mx3e3_mx-dropdown_multiple_-footer\"><button class=\"mx3e3_mx-style_index_-btn mx3e3_mx-style_index_-btn-brand\" mx-click=\"\u001f\u001ehide({enter:true})\">确定</button><button class=\"mx3e3_mx-style_index_-btn mx3e3_mx-style_index_-ml5\" mx-click=\"\u001f\u001ehide()\">取消</button></div><%}%>","s":"3\u001d"},{"keys":["viewId","selected","list","textKey","valueKey"],"path":"ul[mx-guid=\"g3\u001f\"]","pKeys":["rList","searchbox"],"tmpl":"<%let a=$$.selected.split(','),b,c;%><%for(let d=0;d<$$.list.length;d++){%><%let e=$$.list[d];%><%if(e&&e.group){%><li class=\"mx3e3_mx-dropdown_multiple_-dropdown-header mx3e3_mx-style_index_-ellipsis\" title=\"<%=e[$$.textKey]%>\"><%=e[$$.textKey]%></li><%}else{%><%if($$.textKey&&$$.valueKey){%><%b=e[$$.textKey];c=e[$$.valueKey]%><%}else{%><%b=e;c=e;%><%}%><%let f=$$.inArray(c+'',a)>-1%><%if(c===''){%><li title=\"<%=b%>\" class=\"mx3e3_mx-dropdown_multiple_-dropdown-item\"><a href=\"#\" class=\"mx3e3_mx-dropdown_multiple_-item-link mx3e3_mx-style_index_-ellipsis <%if(f){%> mx3e3_mx-dropdown_multiple_-active <%}%>\" mx-click=\"\u001f\u001eselect({item:'<%@e%>'})\"><%=b%></a></li><%}else{%><li class=\"mx3e3_mx-dropdown_multiple_-dropdown-item mx3e3_mx-style_index_-clearfix\"><ul><%for(;d<$$.list.length;d++){%><%e=$$.list[d]%><%if(e&&e.group){%><%d--;%><%break;%><%}%><%if($$.textKey&&$$.valueKey){%><%b=e[$$.textKey];c=e[$$.valueKey]%><%}else{%><%b=e;c=e;%><%}%><%let g=$$.inArray(c+'',a)>-1%><li class=\"mx3e3_mx-dropdown_multiple_-s-item\"><a href=\"#\" class=\"mx3e3_mx-dropdown_multiple_-s-item-link mx3e3_mx-style_index_-ellipsis <%if(g){%> mx3e3_mx-dropdown_multiple_-active <%}%>\" mx-click=\"\u001f\u001eselect({item:'<%@e%>'})\"><%=b%></a></li><%}%></ul></li><%}%><%}%><%}%>","s":"4\u001d","attr":"id=\"list_<%=$$.viewId%>\"","attrs":[{"n":"id","p":1}],"mask":"21111"}],"file":"mx-dropdown/multiple.html"},
     init(extra) {
         let me = this;
         Monitor.setup();
@@ -33,7 +36,7 @@ module.exports = Magix.View.extend({
         me.$oNode = node;
         let updater = me.updater;
         let data = updater.get();
-        node.addClass('mx3e3-_mx-dropdown_multiple_-dropdown');
+        node.addClass('mx3e3_mx-dropdown_multiple_-dropdown');
         if (!data.list) {
             let list = [];
             let group;
@@ -53,14 +56,14 @@ module.exports = Magix.View.extend({
             });
         }
         if (data.disabled) {
-            node.addClass('mx3e3-_mx-dropdown_multiple_-notallowed');
+            node.addClass('mx3e3_mx-dropdown_multiple_-notallowed');
         }
         me.updateList(data.list);
         me.updateSelected(data.selected);
     },
     hide(ignoreBak) {
         let me = this;
-        if (me.$oNode.hasClass('mx3e3-_mx-dropdown_multiple_-open')) {
+        if (me.$oNode.hasClass('mx3e3_mx-dropdown_multiple_-open')) {
             let data = this.updater.get();
             if (Magix.has(data, 'bakSelected')) {
                 let fired = ignoreBak && data.selected !== data.bakSelected;
@@ -81,22 +84,22 @@ module.exports = Magix.View.extend({
                 }
                 delete data.bakSelected;
             }
-            me.$oNode.removeClass('mx3e3-_mx-dropdown_multiple_-open').trigger('focusout');
+            me.$oNode.removeClass('mx3e3_mx-dropdown_multiple_-open').trigger('focusout');
             Monitor.remove(me);
         }
     },
     show() {
         let me = this;
-        if (!me.$oNode.hasClass('mx3e3-_mx-dropdown_multiple_-open')) {
+        if (!me.$oNode.hasClass('mx3e3_mx-dropdown_multiple_-open')) {
             let data = me.updater.get();
             if (!data.rList) {
                 me.updater.digest({
                     rList: true
                 });
             }
-            me.$oNode.addClass('mx3e3-_mx-dropdown_multiple_-open').trigger('focusin');
+            me.$oNode.addClass('mx3e3_mx-dropdown_multiple_-open').trigger('focusin');
             let listNode = $('#list_' + me.id);
-            let active = listNode.find('.mx3e3-_mx-dropdown_multiple_-active');
+            let active = listNode.find('.mx3e3_mx-dropdown_multiple_-active');
             let pos = active.position();
             if (pos) {
                 let height = listNode.height();
@@ -215,9 +218,9 @@ module.exports = Magix.View.extend({
     'toggle<click>' () {
         let me = this;
         let node = me.$oNode;
-        if (node.hasClass('mx3e3-_mx-dropdown_multiple_-open')) {
+        if (node.hasClass('mx3e3_mx-dropdown_multiple_-open')) {
             me.hide();
-        } else if (!node.hasClass('mx3e3-_mx-dropdown_multiple_-notallowed')) {
+        } else if (!node.hasClass('mx3e3_mx-dropdown_multiple_-notallowed')) {
             me.show();
         }
     },
